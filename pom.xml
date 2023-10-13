@@ -6,4 +6,44 @@
   <version>1.0-SNAPSHOT</version>
   <name>Archetype - iCar</name>
   <url>http://maven.apache.org</url>
+  <properties>
+    <maven.compiler.source>18</maven.compiler.source>
+    <maven.compiler.target>18</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+
+<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+<dependency>
+  <groupId>io.cucumber</groupId>
+  <artifactId>cucumber-java</artifactId>
+  <version>7.14.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+<dependency>
+  <groupId>io.cucumber</groupId>
+  <artifactId>cucumber-junit</artifactId>
+  <version>7.14.0</version>
+  <scope>test</scope>
+</dependency>
+
+  <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
+  <dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-picocontainer</artifactId>
+    <version>7.13.0</version>
+  </dependency>
+
+
+  <!-- https://mvnrepository.com/artifact/junit/junit -->
+  <dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13.2</version>
+    <scope>test</scope>
+  </dependency>
+
+
+</dependencies>
 </project>
