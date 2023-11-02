@@ -32,7 +32,7 @@ public class MainMenu {
                 break;
 
             case Rank.ADMIN:
-                //
+                displayAdminMenu();
                 break;
 
             case Rank.INSTALLER:
@@ -47,7 +47,6 @@ public class MainMenu {
 
     private void displayAdminMenu(){
         while (true){
-            System.out.println("Admin Menu");
             System.out.println("1. Manage Products");
             System.out.println("2. Manage Categories");
             System.out.println("3. Manage Users");
