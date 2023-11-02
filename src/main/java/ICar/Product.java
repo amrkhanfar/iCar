@@ -8,11 +8,12 @@ public class Product {
     private boolean available;
     private int id;
 
-    public Product(String name, String description, double price, int stock) {
+    public Product(String name, String description, double price, int stock, int id) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.stock = stock;
+        this.id = id;
 
         if (stock != 0)
             available = true;

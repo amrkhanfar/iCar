@@ -6,13 +6,20 @@ import java.util.ArrayList;
 public class ProductManager {
 
     private ArrayList<Category> categories;
+    private Category interiorCategory;
+    private Category exteriorCategory;
+    private Category electronicsCategory;
 
     public ProductManager(){
         categories = new ArrayList<Category>(); //initializing categories array list until a database is connected
 
-        Category interiorCategory = new Category("Interior", "Accessories for the car's interior.");
-        Category exteriorCategory = new Category("Exterior", "Accessories for the car's exterior.");
-        Category electronicsCategory = new Category("Electronics", "Car electronic gadgets and accessories.");
+        interiorCategory = new Category("Interior", "Accessories for the car's interior.");
+        exteriorCategory = new Category("Exterior", "Accessories for the car's exterior.");
+        electronicsCategory = new Category("Electronics", "Car electronic gadgets and accessories.");
+
+        categories.add(interiorCategory);
+        categories.add(exteriorCategory);
+        categories.add(electronicsCategory);
     }
 
     public Product addProduct (Product product, Category category) {              //needs to be edited when database is linked.

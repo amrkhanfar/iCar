@@ -7,11 +7,13 @@ public class UserManager {
 
     public UserManager(){
         users = new ArrayList<User>(); //initializing the array list
+
+        users.add( new User("Amr Khanfar", "ultraakch@gmail.com", "123456", Rank.ADMIN));
     }
 
     public User registerUser(String name, String email, String password, String role){
         if (getUserByEmail(email)!=null){
-            return null;
+            return null;  //already exists
         }
         User newUser = new User(name, email, password, role);
         users.add(newUser);
