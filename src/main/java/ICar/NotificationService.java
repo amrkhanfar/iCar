@@ -52,11 +52,11 @@ public class NotificationService {
         });
 
         try {
-            MimeMessage mimeMessage = new MimeMessage(session);
-            mimeMessage.setFrom(new InternetAddress(senderEmail));
-            mimeMessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
-            mimeMessage.setSubject(subject);
-            mimeMessage.setText(message);
+                MimeMessage mimeMessage = new MimeMessage(session);
+                mimeMessage.setFrom(new InternetAddress(senderEmail));
+                mimeMessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
+                mimeMessage.setSubject(subject);
+                mimeMessage.setText(message);
 
             Transport.send(mimeMessage);
             System.out.println("Email sent successfully to " + recipientEmail);

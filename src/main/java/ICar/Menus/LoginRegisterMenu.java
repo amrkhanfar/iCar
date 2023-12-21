@@ -27,7 +27,7 @@ public class LoginRegisterMenu {
             System.out.print( "\n\n\n\n\n\n\n\n\n\n" + "Email/Password you've entered is wrong" + "\n\n\n\n");
             return null;
         } else {
-            System.out.println("\n\n\nWelcome " + currentUser.getName() + "!");
+            System.out.println("\n\n\nWelcome " + currentUser.getName() + "!");      //move this to main
 
             if (!currentUser.getRank().equals(Rank.USER)) {
                 System.out.println("Your role: " + currentUser.getRank() + "\n\n");
@@ -43,9 +43,13 @@ public class LoginRegisterMenu {
         String userInputName;
 
         do {
-            System.out.print("Enter your new email: ");
+            System.out.print("Enter your email / Enter # to exit: ");
             userInputEmail = scanner.next();
             scanner.nextLine();  // Consume the newline character
+
+            if (userInputEmail.equals("#")) {
+                return null;
+            }
 
             if (userManager.getUserByEmail(userInputEmail) != null){
                 System.out.println("Email already exists. Please choose another email.\n");
@@ -53,9 +57,13 @@ public class LoginRegisterMenu {
         } while (userManager.getUserByEmail(userInputEmail) != null);
 
         do {
-            System.out.print("Enter your password: ");
+            System.out.print("Enter your password / Enter # to exit: ");
             userInputPassword = scanner.next();
             scanner.nextLine();  // Consume the newline character
+
+            if (userInputPassword.equals("#")) {
+                return null;
+            }
 
             if (userInputPassword.length() < 8) {
                 System.out.println("Password must be at least 8 characters long. Please try again.\n");

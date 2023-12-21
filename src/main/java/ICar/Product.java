@@ -8,17 +8,28 @@ public class Product {
     private boolean available;
     private int id;
 
-    public Product(String name, String description, double price, int stock, int id) {
+    public Product(String name, String description, double price, int stock) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.stock = stock;
-        this.id = id;
+        this.id = RandomIDGenerator.generateUniqueId();
 
         if (stock != 0)
             available = true;
         else
             available = false;
+    }
+
+    public void displayProductDetails() {
+        System.out.println("---- Product Details ----");
+        System.out.println("     ID: " + this.id);
+        System.out.println("Name: " + this.name);
+        System.out.println("Description: " + this.description);
+        System.out.println("Price: $" + this.price);
+        System.out.println("Available: " + (this.available ? "Yes" : "No"));
+
+        System.out.println("-------------------------");
     }
 
     public String getName() {

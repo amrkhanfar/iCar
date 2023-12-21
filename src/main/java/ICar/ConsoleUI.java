@@ -1,0 +1,532 @@
+package ICar;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ConsoleUI {
+
+    private User currentUser;
+    ArrayList<Product>  cart;
+    private UserManager userManager;
+    private ProductManager productManager;
+    private InstallationManager installationManager;
+    private ReviewManager reviewManager;
+    private  NotificationService notificationService;
+    private OrderManager orderManager;
+
+    private Scanner scanner;
+
+
+    public ConsoleUI(UserManager userManager, ProductManager productManager, InstallationManager installationManager, ReviewManager reviewManager, NotificationService notificationService, OrderManager orderManager, ArrayList<Product> cart) {
+        this.userManager = userManager;
+        this.productManager =  productManager;
+        this.installationManager = installationManager;
+        this.reviewManager = reviewManager;
+        this.notificationService = notificationService;
+        this.orderManager = orderManager;
+        scanner = new Scanner(System.in);
+        this.cart = cart;
+    }
+
+    public void start() {
+
+        while (true) {
+            displayMainMenu();
+            int choice = scanner.nextInt();
+            scanner.nextLine();  // Consume the newline character
+
+            switch (choice) {
+                case 1:
+                    loginUser(scanner);
+                    break;
+                case 2:
+                    registerUser(scanner);
+                    break;
+                case 3:
+                    System.out.println("Exiting iCar...");
+                    return;
+
+                default:
+                    System.out.println("Invalid input. Please try again.");
+            }
+        }
+    }
+
+    private void displayMainMenu() {
+        System.out.println("\n\n--- Welcome " + currentUser.getName() + " to iCar ---");
+        System.out.println("1. Login");
+        System.out.println("2. Register");
+        System.out.println("3. Exit");
+        System.out.print("Enter your choice: ");
+    }
+
+    private void loginUser(Scanner scanner) {
+        System.out.print("Enter your email: ");
+        String userInputEmail = scanner.next();
+        scanner.nextLine();  // Consume the newline character
+        userInputEmail = userInputEmail.toLowerCase().trim();
+
+        System.out.print("Enter your password: ");
+        String userInputPassword = scanner.next();
+        scanner.nextLine();  // Consume the newline character
+
+        currentUser = userManager.authenticateUser(userInputEmail, userInputPassword);
+
+        if (currentUser == null) {
+            System.out.print( "\n\n\n\n\n\n\n\n\n\n" + "Email/Password you've entered is wrong" + "\n\n\n\n");
+        } else {
+            handleLoggedInUser();
+        }
+    }
+
+    private void registerUser(Scanner scanner) {
+        String userInputEmail;
+        String userInputPassword;
+        String userInputName;
+
+        do {
+            System.out.print("Enter your email / Enter # to exit: ");
+            userInputEmail = scanner.next();
+            scanner.nextLine();  // Consume the newline character
+
+            if (userInputEmail.equals("#")) {
+                return;
+            }
+
+            if (userManager.getUserByEmail(userInputEmail) != null){
+                System.out.println("Email already exists. Please choose another email.\n");
+            }
+        } while (userManager.getUserByEmail(userInputEmail) != null);
+
+        do {
+            System.out.print("Enter your password / Enter # to exit: ");
+            userInputPassword = scanner.next();
+
+
+            if (userInputPassword.equals("#")) {
+                return;
+            }
+
+            if (userInputPassword.length() < 8) {
+                System.out.println("Password must be at least 8 characters long. Please try again.\n");
+            }
+        } while (userInputPassword.length() < 8);
+
+        do {
+            System.out.print("Enter your full name: ");
+            userInputName= scanner.next();
+            scanner.nextLine();  // Consume the newline character
+
+            if (userInputName.length() < 2) {
+                System.out.println("Name has to be more than 1 characters. Please choose another name.\n");
+            }
+        } while (userInputName.length() < 2);
+
+        System.out.println("Your account have been registered successfully.\n\n");
+        userManager.registerUser(userInputName, userInputEmail, userInputPassword, Rank.USER);
+        return;
+
+    }
+
+    private void handleLoggedInUser() {
+        int choice;
+        switch (currentUser.getRank()) {
+            case Rank.USER:
+                while (currentUser != null) {
+                    displayUserMenu();
+                    choice = scanner.nextInt();
+                    scanner.nextLine();  // Consume the newline character
+
+                    handleUserMenuChoice(choice);
+                }
+                break;
+            case Rank.ADMIN:
+                while (currentUser != null) {
+                    displayAdminMenu();
+                    choice = scanner.nextInt();
+                    scanner.nextLine(); // Consume the newline character
+
+                    handleAdminMenuChoice(choice);
+                }
+            case Rank.INSTALLER:
+                displayInstallerMenu();
+        }
+    }
+
+    private void handleAdminMenuChoice(int choice) {
+        switch (choice) {
+            case 1:
+                manageProducts();
+                break;
+            case 2:
+                // Implement category management
+                System.out.println("Managing categories...");
+                break;
+            case 3:
+                // Implement user management
+                System.out.println("Managing users...");
+                break;
+            case 4:
+                // Implement appointment scheduling
+                System.out.println("Scheduling appointments...");
+                break;
+            case 5:
+                viewInstallationRequests();
+                break;
+            case 6:
+                viewAnalyticsAndReports();
+                break;
+            case 7:
+                System.out.println("Logging out...");
+                currentUser = null;
+                break;
+            default:
+                System.out.println("Invalid choice. Please select a valid option.");
+        }
+    }
+
+    public void manageCategories() {
+        while (true) {
+            System.out.println("---- Manage Categories ----");
+            System.out.println("1. Add Category");
+            System.out.println("2. Edit Category");
+            System.out.println("3. Delete Category");
+            System.out.println("4. Back to Admin Menu");
+            System.out.print("Enter your choice: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+
+            switch (choice) {
+                case 1:
+                    addCategory();
+                    break;
+                case 2:
+                    editCategory();
+                    break;
+                case 3:
+                    deleteCategory();
+                    break;
+                case 4:
+                    System.out.println("Returning to Admin Menu...");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please select a valid option.");
+            }
+        }
+    }
+
+    private void addCategory() {
+        System.out.print("Enter the name of the new category: ");
+        String categoryName = scanner.nextLine();
+
+        System.out.print("Enter the description of the new category: ");
+        String categoryDescription = scanner.nextLine();
+
+        Category newCategory = new Category(categoryName, categoryDescription);
+        productManager.addCategory(newCategory);
+        System.out.println("Category added successfully.");
+    }
+
+    private void editCategory() {
+        System.out.print("Enter the name of the category to edit: ");
+        String categoryName = scanner.nextLine();
+
+        Category categoryToEdit = productManager.getCategoryByName(categoryName);
+
+        if (categoryToEdit != null) {
+            System.out.print("Enter the new name for the category: ");
+            String newCategoryName = scanner.nextLine();
+
+            System.out.print("Enter the new description for the category: ");
+            String newCategoryDescription = scanner.nextLine();
+
+            categoryToEdit.setName(newCategoryName);
+            categoryToEdit.setDescription(newCategoryDescription);
+
+            System.out.println("Category edited successfully.");
+        } else {
+            System.out.println("Category not found.");
+        }
+    }
+
+    private void deleteCategory() {
+        System.out.print("Enter the name of the category to delete: ");
+        String categoryName = scanner.nextLine();
+
+        Category categoryToDelete = productManager.getCategoryByName(categoryName);
+
+        if (categoryToDelete != null) {
+            boolean isRemoved = productManager.removeCategory(categoryToDelete);
+
+            if (isRemoved) {
+                System.out.println("Category deleted successfully.");
+            } else {
+                System.out.println("Failed to delete the category.");
+            }
+        } else {
+            System.out.println("Category not found.");
+        }
+    }
+
+    public void manageProducts() {
+        while (true) {
+            System.out.println("---- Product Management Menu ----");
+            System.out.println("1. Add New Product");
+            System.out.println("2. Add New Product");
+            System.out.println("3. Update Product Information");
+            System.out.println("4. Remove Product");
+            System.out.println("5. Exit Product Management");
+
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+
+            switch (choice) {
+                case 1:
+                    browseProducts();
+                    break;
+                case 2:
+                    addNewProduct();
+                    break;
+                case 3:
+                    updateProduct();
+                    break;
+                case 4:
+                    removeProduct();
+                    break;
+                case 5:
+                    System.out.println("Exiting Product Management Menu...");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please select a valid option.");
+            }
+        }
+    }
+
+    public void removeProduct() {
+        System.out.print("Enter the ID of the product to remove: ");
+        int enteredProductID = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline character
+
+        Product productToRemove = productManager.findProductById(enteredProductID);
+
+        if (productToRemove != null) {
+            Category productCategory = productManager.findCategoryByProduct(productToRemove);
+
+            if (productCategory != null) {
+                boolean isRemoved = productCategory.removeProduct(productToRemove);
+
+                if (isRemoved) {
+                    System.out.println("Product removed successfully.");
+                } else {
+                    System.out.println("Failed to remove the product.");
+                }
+            } else {
+                System.out.println("Error: Product category not found.");
+            }
+        } else {
+            System.out.println("Product not found.");
+        }
+    }
+
+
+    private void updateProduct() {
+        System.out.print("Enter the ID of the product to update: ");
+        int enteredProductID = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline character
+
+        Product productToUpdate = productManager.findProductById(enteredProductID);
+
+        if (productToUpdate != null) {
+            System.out.println("Current product information:");
+            productToUpdate.displayProductDetails();
+
+
+            System.out.print("Enter new product name (or press Enter to keep the current name): ");
+            String newProductName = scanner.nextLine();
+            if (!newProductName.isEmpty()) {
+                productToUpdate.setName(newProductName);
+            }
+
+            System.out.print("Enter new product description (or press Enter to keep the current description): ");
+            String newProductDescription = scanner.nextLine();
+            if (!newProductDescription.isEmpty()) {
+                productToUpdate.setDescription(newProductDescription);
+            }
+
+            System.out.print("Enter new product price (or enter 0 to keep the current price): ");
+            double newProductPrice = scanner.nextDouble();
+            if (newProductPrice != 0) {
+                productToUpdate.setPrice(newProductPrice);
+            }
+
+            System.out.print("Enter new product stock quantity (or enter 0 to keep the current stock): ");
+            int newProductStock = scanner.nextInt();
+            if (newProductStock != 0) {
+                productToUpdate.setStock(newProductStock);
+            }
+
+            System.out.println("Product updated successfully:");
+            productToUpdate.displayProductDetails();
+        } else {
+            System.out.println("Product not found.");
+        }
+    }
+
+
+    private void addNewProduct() {
+        System.out.print("Enter product name: ");
+        String productName = scanner.nextLine();
+
+        System.out.print("Enter product description: ");
+        String productDescription = scanner.nextLine();
+
+        System.out.print("Enter product price: ");
+        double productPrice = scanner.nextDouble();
+
+        System.out.print("Enter product stock quantity: ");
+        int productStock = scanner.nextInt();
+
+        Product newProduct = new Product(productName, productDescription, productPrice, productStock);
+
+        System.out.println("Select a category to add the product to:");
+        productManager.displayCategories();
+        System.out.print("Enter category name: ");
+        String categoryName = scanner.next();
+        Category selectedCategory = productManager.getCategoryByName(categoryName);
+
+        if (selectedCategory != null) {
+            Product addedProduct = productManager.addProduct(newProduct, selectedCategory);
+            if (addedProduct != null) {
+                System.out.println("Product added successfully to the category: " + selectedCategory.getName());
+            } else {
+                System.out.println("Product already exists in the category.");
+            }
+        } else {
+            System.out.println("Category not found.");
+        }
+    }
+
+    private void displayAdminMenu() {
+        System.out.println("---- Admin Menu ----");
+        System.out.println("1. Manage Products");
+        System.out.println("2. Manage Categories");
+        System.out.println("3. Manage Users");
+        System.out.println("4. Schedule Appointments");
+        System.out.println("5. View Installation Requests");
+        System.out.println("6. View Analytics and Reports");
+        System.out.println("7. Logout");
+        System.out.print("Enter your choice: ");
+    }
+
+    private void displayUserMenu() {
+        System.out.println("---- User Menu ----");
+        System.out.println("1. Browse Products");
+        System.out.println("2. View My Cart");
+        System.out.println("3. View My Order History");
+        System.out.println("4. Logout");
+        System.out.print("Enter your choice: ");
+    }
+
+    private void handleUserMenuChoice(int choice) {
+        switch (choice) {
+            case 1:
+                browseProducts();
+                break;
+            case 2:
+                viewCart();
+                break;
+            case 3:
+                viewOrderHistory();
+                break;
+            case 4:
+                logoutUser();
+                break;
+            default:
+                System.out.println("Invalid choice. Please select a valid option.");
+        }
+    }
+
+
+
+    private void browseProducts() {
+        System.out.println("---- Product Catalog ----");
+
+
+        for (Category category : productManager.getCategories()) {
+            System.out.println("Category: " + category.getName());
+            for (Product product : category.getProducts()) {
+                product.displayProductDetails();
+            }
+        }
+        System.out.print("Enter the ID of the product you want to view / 0 to go back: ");
+        int selectedProductId = scanner.nextInt();
+        scanner.nextLine();  // Consume the newline character
+
+        if (selectedProductId != 0) {
+            Product selectedProduct = productManager.findProductById(selectedProductId);
+
+            if (selectedProduct != null) {
+                cart.add(selectedProduct);
+                System.out.println(selectedProduct.getName() + "has been added to your cart.");
+            } else {
+                System.out.println("Invalid product ID. Please try again.");
+            }
+        } else {
+            return;
+        }
+    }
+
+    private void viewCart() {
+        System.out.println("---- Cart ----");
+        for (Product product : cart) {
+            product.displayProductDetails();
+        }
+    }
+
+    private void viewOrderHistory() {
+        ArrayList<Order> customerOrderHistory = new ArrayList<Order>();
+
+        if(customerOrderHistory.isEmpty()) {
+            System.out.println("You have no previous orders.");
+        } else {
+            System.out.println("--- Previous Orders ---");
+            for (Order order : customerOrderHistory) {
+                System.out.println("Order ID: " + order.getOrderID());
+                System.out.println("Order Date: " + order.getOrderDate());
+                System.out.println("Total Cost: $" + order.calculateCost());
+
+                InstallationRequest currentOrderInstallationRequest = installationManager.checkIfOrderHasInstallationRequest(order);
+                if (currentOrderInstallationRequest != null) {
+                    System.out.println("- Installation request for this order -");
+                    System.out.println(currentOrderInstallationRequest.getRequestDetails());
+                }
+                System.out.println("Products:");
+                for (Product product : order.getProducts()) {
+                    System.out.println("  - " + product.getName() + " | Price: $" + product.getPrice());
+                }
+
+                System.out.println("----------------");
+            }
+
+            }
+        }
+
+    private void logoutUser() {
+        currentUser = null;
+        System.out.println("Logged out...");
+        System.out.println("Thanks for using iCar.");
+    }
+
+
+
+
+
+
+
+    private void displayInstallerMenu() {
+
+    }
+
+}

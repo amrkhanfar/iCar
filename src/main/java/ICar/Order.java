@@ -1,15 +1,16 @@
 package ICar;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Order {
     private int orderID;
-    private Date orderDate;
+    private LocalDateTime orderDate;
     private ArrayList<Product> products;
     private User customer;
 
-    public Order(int orderID, Date orderDate, User customer, ArrayList<Product> products) {
+    public Order(int orderID, LocalDateTime orderDate, User customer, ArrayList<Product> products) {
         this.orderID = orderID;
         this.orderDate = orderDate;
         this.customer = customer;
@@ -32,11 +33,11 @@ public class Order {
         this.orderID = orderID;
     }
 
-    public Date getOrderDate() {
+    public LocalDateTime getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(LocalDateTime orderDate) {
         this.orderDate = orderDate;
     }
 

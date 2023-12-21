@@ -55,4 +55,17 @@ public class InstallationManager {
         }
         return null; // Request not found.
     }
+
+    public ArrayList<InstallationRequest> getInstallationRequests() {
+        return installationRequests;
+    }
+
+    public InstallationRequest checkIfOrderHasInstallationRequest(Order order) {
+        for (InstallationRequest installationRequest : installationRequests) {
+            if (installationRequest.getOrder().equals(order)) {
+                return installationRequest;
+            }
+        }
+        return null;
+    }
 }

@@ -10,7 +10,7 @@ public class InstallationRequest {
     private User customer;
     private LocalDateTime scheduledDateTime;
     private Installer assignedInstaller;
-    private Status status; // Enum for tracking request status (e.g., PENDING, SCHEDULED, COMPLETED, CANCELLED)
+    private Status status;
     private String notes;
 
     public enum Status {
@@ -32,9 +32,6 @@ public class InstallationRequest {
         this.status = Status.PENDING;
         this.notes = "";
     }
-
-
-
 
 
     public void assignInstaller(Installer installer) {

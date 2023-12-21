@@ -1,5 +1,6 @@
 package ICar;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -13,7 +14,7 @@ public class OrderManager {
         this.notificationService = notificationService;
     }
 
-    public void placeOrder(int id, Date date, User customer, ArrayList<Product> cart) {
+    public void placeOrder(int id, LocalDateTime date, User customer, ArrayList<Product> cart) {
         Order order = new Order(id, date, customer, cart);
         orders.add(order);
         notificationService.sendOrderConfirmationNotification(customer, order);

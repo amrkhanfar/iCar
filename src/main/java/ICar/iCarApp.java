@@ -19,59 +19,37 @@ public class iCarApp {
     private static boolean isLoggedIn;
     private static ArrayList<Product>  cart;
 
+    static UserManager userManager;
+    static ProductManager productManager;
+    static InstallationManager installationManager;
+    static ReviewManager reviewManager;
+    static NotificationService notificationService;
+    static OrderManager orderManager;
+
+
     public static void main(String[] args) {
 
-        UserManager userManager = new UserManager();
-        ProductManager productManager =  new ProductManager();
-        InstallationManager installationManager = new InstallationManager();
-        ReviewManager reviewManager = new ReviewManager();
 
-
-        NotificationService notificationService = new NotificationService(userManager.getUsers(), "ultraakch@gmail.com", "wgva fubp arbg rljf");
-        OrderManager orderManager = new OrderManager(notificationService);
-
-        Scanner scanner = new Scanner(System.in);
+        userManager = new UserManager();
+        productManager =  new ProductManager();
+        installationManager = new InstallationManager();
+        reviewManager = new ReviewManager();
+        notificationService = new NotificationService(userManager.getUsers(), "ultraakch@gmail.com", "wgva fubp arbg rljf");
+        orderManager = new OrderManager(notificationService);
         cart = new ArrayList<Product>();
-        isLoggedIn = false;
 
 
-        System.out.println("  _  _____           \n" +
-                " (_)/ ____|          \n" +
-                "  _| |     __ _ _ __ \n" +
-                " | | |    / _` | '__|\n" +
-                " | | |___| (_| | |   \n" +
-                " |_|\\_____\\__,_|_|   \n" +
-                "                     \n" +
-                "                     ");
-        while(true){
-            System.out.println("Welcome to iCar.");
-            System.out.println("1. Login");
-            System.out.println("2. Register");
-            System.out.println("3. Exit");
-            System.out.print("Enter your choice: ");
+        ConsoleUI consoleUI = new ConsoleUI(userManager,productManager,installationManager,reviewManager,notificationService,orderManager,cart);
+        consoleUI.start();
 
 
-            int choice = scanner.nextInt();
 
 
-            switch (choice) {
-                case 1:
-                    currentUser = LoginRegisterMenu.login(scanner, userManager);
-                    MainMenu mainMenu = new MainMenu(userManager,productManager,orderManager,currentUser,scanner);
-                    mainMenu.displayMenu();
-                    break;
-                case 2:
-                    LoginRegisterMenu.register(scanner, userManager);
-                    break;
-                case 3:
-                    System.out.println("Goodbye!");
-                    return;
-                default:
-                    System.out.println("Please select a valid option.");
-            }
+
+
+
+
         }
 
-
-
     }
-}
+
