@@ -11,21 +11,24 @@ import java.util.Scanner;
 
 public class iCarApp {
 
-    static UserManager userManager;
-    static ProductManager productManager;
-    static OrderManager orderManager;
-    static Category category;
+
 
 
 
     private static User currentUser;
     private static boolean isLoggedIn;
     private static ArrayList<Product>  cart;
+
     public static void main(String[] args) {
 
-        userManager = new UserManager();
-        productManager =  new ProductManager();
-        orderManager = new OrderManager();
+        UserManager userManager = new UserManager();
+        ProductManager productManager =  new ProductManager();
+        InstallationManager installationManager = new InstallationManager();
+        ReviewManager reviewManager = new ReviewManager();
+
+
+        NotificationService notificationService = new NotificationService(userManager.getUsers(), "ultraakch@gmail.com", "wgva fubp arbg rljf");
+        OrderManager orderManager = new OrderManager(notificationService);
 
         Scanner scanner = new Scanner(System.in);
         cart = new ArrayList<Product>();

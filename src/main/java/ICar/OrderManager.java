@@ -5,14 +5,18 @@ import java.util.Date;
 
 public class OrderManager {
     private ArrayList<Order> orders;
+    private NotificationService notificationService;
 
-    public OrderManager() {
+    public OrderManager(NotificationService notificationService)
+    {
         orders = new ArrayList<Order>();
+        this.notificationService = notificationService;
     }
 
     public void placeOrder(int id, Date date, User customer, ArrayList<Product> cart) {
         Order order = new Order(id, date, customer, cart);
         orders.add(order);
+        notificationService.sendOrderConfirmationNotification(customer, order);
     }
 
     public Order getOrderDetails(int orderID) {
