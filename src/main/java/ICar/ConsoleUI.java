@@ -1,10 +1,13 @@
 package ICar;
 
+import io.cucumber.java.sl.In;
+
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ConsoleUI {
-
     private User currentUser;
     ArrayList<Product>  cart;
     private UserManager userManager;
@@ -14,7 +17,6 @@ public class ConsoleUI {
     private  NotificationService notificationService;
     private OrderManager orderManager;
     private Scanner scanner;
-
 
     public ConsoleUI(UserManager userManager, ProductManager productManager, InstallationManager installationManager, ReviewManager reviewManager, NotificationService notificationService, OrderManager orderManager, ArrayList<Product> cart) {
         this.userManager = userManager;
@@ -78,7 +80,7 @@ public class ConsoleUI {
         }
     }
 
-    private void registerUser(String rank) {
+    private User registerUser(String rank) {
         String userInputEmail;
         String userInputPassword;
         String userInputName;
@@ -89,7 +91,7 @@ public class ConsoleUI {
             scanner.nextLine();  // Consume the newline character
 
             if (userInputEmail.equals("#")) {
-                return;
+                return null;
             }
 
             if (userManager.getUserByEmail(userInputEmail) != null){
@@ -98,12 +100,12 @@ public class ConsoleUI {
         } while (userManager.getUserByEmail(userInputEmail) != null);
 
         do {
-            System.out.print("Enter your password / Enter # to exit: ");
+            System.out.print("Enter password / Enter # to exit: ");
             userInputPassword = scanner.next();
 
 
             if (userInputPassword.equals("#")) {
-                return;
+                return null;
             }
 
             if (userInputPassword.length() < 8) {
@@ -122,8 +124,8 @@ public class ConsoleUI {
         } while (userInputName.length() < 2);
 
         System.out.println("Your account have been registered successfully.\n\n");
-        userManager.registerUser(userInputName, userInputEmail, userInputPassword, rank);
-        return;
+        User registeredUser = userManager.registerUser(userInputName, userInputEmail, userInputPassword, rank);
+        return registeredUser;
 
     }
 
@@ -149,7 +151,75 @@ public class ConsoleUI {
                 }
             case Rank.INSTALLER:
                 displayInstallerMenu();
+                choice = scanner.nextInt();
+                scanner.nextLine(); // Consume the newline character
+
+
         }
+    }
+    private void handleInstallerMenuChoice(int choice) {
+        switch (choice) {
+            case 1:
+                viewInstallationRequestsForInstaller();
+                break;
+            case 2:
+                completeInstallationRequest();
+                break;
+            case 3:
+                System.out.println("Logging out...");
+                currentUser = null;
+                break;
+            default:
+                System.out.println("Invalid choice. Please select a valid option.");
+        }
+    }
+
+    private void completeInstallationRequest() {
+        System.out.print("Enter the ID of the installation request to complete: ");
+        int requestId = scanner.nextInt();
+
+        InstallationRequest requestToComplete = installationManager.findInstallationRequestById(requestId);
+        if (requestToComplete != null) {
+            requestToComplete.completeRequest();
+            System.out.println("Installation request marked as completed.");
+        } else {
+            System.out.println("Invalid installation request ID. Please try again.");
+        }
+    }
+
+    private void viewInstallationRequestsForInstaller() {
+        ArrayList<InstallationRequest> installerRequests = installationManager.getInstallerByName(currentUser.getName()).getAssignedRequests();
+
+        if (installerRequests.isEmpty()) {
+            System.out.println("No installation requests available.");
+        } else {
+            System.out.println("---- Installation Requests ----");
+            for (InstallationRequest request : installerRequests) {
+                System.out.println(request.getRequestDetails());
+                System.out.println("--------------");
+            }
+        }
+    }
+    private void displayInstallerMenu() {
+        System.out.println("---- Installer Menu ----");
+        System.out.println("1. View Installation Requests");
+        System.out.println("2. Complete Installation Request");
+        System.out.println("3. Logout");
+        System.out.print("Enter your choice: ");
+    }
+
+
+
+    private void displayAdminMenu() {
+        System.out.println("---- Admin Menu ----");
+        System.out.println("1. Manage Products");
+        System.out.println("2. Manage Categories");
+        System.out.println("3. Manage Users");
+        System.out.println("4. Schedule Appointments");
+        System.out.println("5. View Installation Requests");
+        System.out.println("6. View Analytics and Reports");
+        System.out.println("7. Logout");
+        System.out.print("Enter your choice: ");
     }
 
     private void handleAdminMenuChoice(int choice) {
@@ -163,11 +233,10 @@ public class ConsoleUI {
             case 3:
                 manageUsers();
             case 4:
-                // Implement appointment scheduling
-                System.out.println("Scheduling appointments...");
+                scheduleAppointments();
                 break;
             case 5:
-                //viewInstallationRequests();
+                viewInstallationRequests();
                 break;
             case 6:
                 //viewAnalyticsAndReports();
@@ -179,6 +248,118 @@ public class ConsoleUI {
             default:
                 System.out.println("Invalid choice. Please select a valid option.");
         }
+    }
+
+    private void viewInstallationRequests() {
+        // Get the installation requests from the InstallationManager
+        ArrayList<InstallationRequest> installationRequests = installationManager.getInstallationRequests();
+
+        if (installationRequests.isEmpty()) {
+            System.out.println("No installation requests available.");
+        } else {
+            // Separate pending requests from other requests
+            ArrayList<InstallationRequest> pendingRequests = new ArrayList<>();
+            ArrayList<InstallationRequest> otherRequests = new ArrayList<>();
+
+            for (InstallationRequest request : installationRequests) {
+                if (request.getStatus() == InstallationRequest.Status.PENDING) {
+                    pendingRequests.add(request);
+                } else {
+                    otherRequests.add(request);
+                }
+            }
+
+            // Display pending requests first
+            if (!pendingRequests.isEmpty()) {
+                System.out.println("---- Pending Installation Requests ----");
+                for (InstallationRequest request : pendingRequests) {
+                    System.out.println(request.getRequestDetails());
+                    System.out.println("--------------");
+                }
+            }
+
+            // Display other requests
+            if (!otherRequests.isEmpty()) {
+                System.out.println("---- Other Installation Requests ----");
+                for (InstallationRequest request : otherRequests) {
+                    System.out.println(request.getRequestDetails());
+                    System.out.println("--------------");
+                }
+            }
+        }
+    }
+
+
+    private void scheduleAppointments() {
+        System.out.println("---- Schedule Appointments ----");
+        ArrayList<InstallationRequest> pendingInstallationRequests = installationManager.getPendingInstallationRequest();
+
+        if (pendingInstallationRequests.isEmpty()) {
+            System.out.println("No pending installation requests available for scheduling.");
+            return;
+        }
+
+        System.out.println("---- Pending Installation Requests ----");
+        for (InstallationRequest request : pendingInstallationRequests) {
+            System.out.println(request.getRequestDetails());
+            System.out.println("--------------");
+        }
+
+        System.out.print("Enter the Installation Request ID to schedule an appointment (or 0 to go back): ");
+        int requestID = scanner.nextInt();
+
+        if (requestID == 0) {
+            System.out.println("Going back to Admin Menu.");
+            return;
+        }
+
+        InstallationRequest selectedInstallationRequest = installationManager.findInstallationRequestById(requestID);
+        if (selectedInstallationRequest == null) {
+            System.out.println("Invalid Installation Request ID. Please try again.");
+            return;
+        }
+
+        System.out.print("Enter the scheduled date and time (yyyy-MM-dd HH:mm): ");
+        String scheduledDateTimeString = scanner.next();
+        LocalDateTime scheduledDateTime = LocalDateTime.parse(scheduledDateTimeString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+
+        Installer selectedInstaller = null;
+        while (selectedInstaller == null) {
+            selectedInstaller = selectInstallerForInstallationRequest();
+
+            if (selectedInstaller == null) {
+                System.out.println("Installer was not found. (Enter anything to continue/ # to cancel: ");
+                String enteredText = scanner.next();
+
+                if (enteredText.equals("#")) {
+                    return;
+                }
+            }
+        }
+
+        installationManager.assignInstallerToRequest(selectedInstallationRequest,selectedInstaller);
+        selectedInstallationRequest.setScheduledDateTime(scheduledDateTime);
+        notificationService.sendInstallationRequestNotification(selectedInstaller,selectedInstallationRequest);
+
+
+    }
+
+    private Installer selectInstallerForInstallationRequest() {
+        System.out.println("---- Installers List ---");
+        ArrayList<Installer> list = installationManager.getInstallers();
+
+
+        for (Installer installer : list) {
+            System.out.println("Installer name: " + installer.getName());
+            System.out.println("Installer Email: " + installer.getEmail());
+            System.out.println("--------");
+        }
+
+        System.out.print("Enter the installer name: ");
+        String enteredName = scanner.nextLine();
+
+        return installationManager.getInstallerByName(enteredName);
+
     }
 
     public void manageUsers() {
@@ -264,8 +445,13 @@ public class ConsoleUI {
     private void addUserByAdmin() {
         System.out.print("Enter the role of the new user (admin/user/installer): ");
         String userToAddRole = scanner.nextLine().trim().toLowerCase();
-        if (userToAddRole.equals(Rank.USER) || userToAddRole.equals(Rank.ADMIN) || userToAddRole.equals(Rank.INSTALLER)) {
+        if (userToAddRole.equals(Rank.USER) || userToAddRole.equals(Rank.ADMIN))  {
             registerUser(userToAddRole);
+        } else if (userToAddRole.equals(Rank.INSTALLER)) {
+            User installerToRegister = registerUser(userToAddRole);
+            if (installerToRegister != null) {
+
+            }
         } else {
             System.out.println("Invalid input.");
             return;
@@ -506,18 +692,6 @@ public class ConsoleUI {
         }
     }
 
-    private void displayAdminMenu() {
-        System.out.println("---- Admin Menu ----");
-        System.out.println("1. Manage Products");
-        System.out.println("2. Manage Categories");
-        System.out.println("3. Manage Users");
-        System.out.println("4. Schedule Appointments");
-        System.out.println("5. View Installation Requests");
-        System.out.println("6. View Analytics and Reports");
-        System.out.println("7. Logout");
-        System.out.print("Enter your choice: ");
-    }
-
     private void displayUserMenu() {
         System.out.println("---- User Menu ----");
         System.out.println("1. Browse Products");
@@ -584,7 +758,7 @@ public class ConsoleUI {
     }
 
     private void viewOrderHistory() {
-        ArrayList<Order> customerOrderHistory = new ArrayList<Order>();
+        ArrayList<Order> customerOrderHistory = orderManager.getOrderHistory(currentUser);
 
         if(customerOrderHistory.isEmpty()) {
             System.out.println("You have no previous orders.");
@@ -623,8 +797,6 @@ public class ConsoleUI {
 
 
 
-    private void displayInstallerMenu() {
 
-    }
 
 }

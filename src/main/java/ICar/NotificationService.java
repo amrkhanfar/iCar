@@ -28,7 +28,7 @@ public class NotificationService {
         sendNotification(customer.getEmail(), subject, message);
     }
 
-    public void sendInstallationRequestNotification(User installer, InstallationRequest request) {
+    public void sendInstallationRequestNotification(Installer installer, InstallationRequest request) {
         String subject = "New Installation Request";
         String message = String.format("Dear %s,\nYou have a new installation request. Request ID: %d.", installer.getName(), request.getId());
         sendNotification(installer.getEmail(), subject, message);

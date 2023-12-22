@@ -15,6 +15,7 @@ public class User {
         this.rank = rank;
     }
 
+
     public String getName() {
         return name;
     }

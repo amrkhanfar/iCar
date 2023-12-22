@@ -24,11 +24,10 @@ public class InstallationRequest {
 
 
 
-    public InstallationRequest(Order order, User customer, LocalDateTime scheduledDateTime) {
-        this.id = RandomIDGenerator.generateUniqueId(); // Implement a mechanism to generate unique IDs
+    public InstallationRequest(Order order, User customer) {
+        this.id = RandomIDGenerator.generateUniqueId();
         this.order = order;
         this.customer = customer;
-        this.scheduledDateTime = scheduledDateTime;
         this.status = Status.PENDING;
         this.notes = "";
     }

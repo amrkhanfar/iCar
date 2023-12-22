@@ -44,11 +44,23 @@ public class UserManager {
 
     public User getUserByName(String name){
         for (User user : users){
-            if (user.getName().equals(name)) {
+            if (user.getName().trim().toLowerCase().equals(name.trim().toLowerCase())) {
                 return user;  //Email exists in the database.
             }
         }
-        return null;  //Email doesn't exist in the database.
+        return null;
+    }
+
+    public ArrayList<User> getUsersByRole(String role) {
+        ArrayList<User> list = new ArrayList<User>();
+
+        for (User user : users) {
+            if (user.getRank().equals(role.trim().toLowerCase())) {
+                list.add(user);
+            }
+        }
+
+        return list;
     }
 
     public ArrayList<User> getUsers (){

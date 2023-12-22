@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class InstallationManager {
 
     private ArrayList<InstallationRequest> installationRequests;
+    private ArrayList<Installer> installers;
 
     public InstallationManager() {
-        this.installationRequests = new ArrayList<>();
+        this.installationRequests = new ArrayList<InstallationRequest>();
+        this.installers = new ArrayList<Installer>();
     }
 
     public void addInstallationRequest(InstallationRequest request) {
@@ -27,14 +29,9 @@ public class InstallationManager {
         }
     }
 
-    public void assignInstallerToRequest(int requestId, Installer installer) {
-        InstallationRequest request = findInstallationRequestById(requestId);
-        if (request != null && request.getStatus() == InstallationRequest.Status.PENDING) {
-            request.assignInstaller(installer);
-            System.out.println("Installer assigned successfully.");
-        } else {
-            System.out.println("Invalid request ID or the request is not pending.");
-        }
+    public void assignInstallerToRequest(InstallationRequest installationRequest, Installer installer) {
+        installationRequest.assignInstaller(installer);
+        installer.getAssignedRequests().add(installationRequest);
     }
 
     public void completeInstallationRequest(int requestId) {
@@ -47,13 +44,24 @@ public class InstallationManager {
         }
     }
 
-    private InstallationRequest findInstallationRequestById(int requestId) {
+    public InstallationRequest findInstallationRequestById(int requestId) {
         for (InstallationRequest request : installationRequests) {
             if (request.getId() == requestId) {
                 return request;
             }
         }
         return null; // Request not found.
+    }
+
+    public ArrayList<InstallationRequest> getPendingInstallationRequest() {
+        ArrayList<InstallationRequest> pendingRequests = new ArrayList<InstallationRequest>();
+
+        for (InstallationRequest installationRequest : getInstallationRequests()) {
+            if(installationRequest.getStatus() == InstallationRequest.Status.PENDING) {
+                pendingRequests.add(installationRequest);
+            }
+        }
+        return pendingRequests;
     }
 
     public ArrayList<InstallationRequest> getInstallationRequests() {
@@ -64,6 +72,26 @@ public class InstallationManager {
         for (InstallationRequest installationRequest : installationRequests) {
             if (installationRequest.getOrder().equals(order)) {
                 return installationRequest;
+            }
+        }
+        return null;
+    }
+
+    public Installer registerInstaller (User user) {
+        Installer installerToRegister = new Installer(user.getName(), user.getEmail(), user);
+
+        installers.add(installerToRegister);
+        return installerToRegister;
+    }
+
+    public ArrayList<Installer> getInstallers() {
+        return installers;
+    }
+
+    public Installer getInstallerByName(String name){
+        for (Installer installer : installers){
+            if (installer.getName().trim().toLowerCase().equals(name.trim().toLowerCase())) {
+                return installer;  //Email exists in the database.
             }
         }
         return null;

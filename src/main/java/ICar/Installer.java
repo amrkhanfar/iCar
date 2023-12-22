@@ -4,27 +4,20 @@ import java.util.ArrayList;
 
 public class Installer {
 
-    private int id;
+
     private String name;
     private String email;
-    private String phone;
+    private User userClassProfile;
     private ArrayList<InstallationRequest> assignedRequests; // Track assigned requests using ArrayList
 
-    public Installer(int id, String name, String email, String phone) {
-        this.id = id;
+    public Installer( String name, String email, User userClassProfile) {
         this.name = name;
         this.email = email;
-        this.phone = phone;
+        this.userClassProfile = userClassProfile;
         this.assignedRequests = new ArrayList<>(); // Initialize as ArrayList
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -42,13 +35,6 @@ public class Installer {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 
     public void setAssignedRequests(ArrayList<InstallationRequest> assignedRequests) {
         this.assignedRequests = assignedRequests;

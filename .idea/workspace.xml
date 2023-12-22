@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8533132-ee67-47c4-b6a3-db27801a6f43" name="Changes" comment="beta 0.4">
-      <change afterPath="$PROJECT_DIR$/src/test/java/icartest/AdminLoginTest.java" afterDir="false" />
+    <list default="true" id="e8533132-ee67-47c4-b6a3-db27801a6f43" name="Changes" comment="beta 0.5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ICar/ConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/ConsoleUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/InstallationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/InstallationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/InstallationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/InstallationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Installer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/Installer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Menus/LoginRegisterMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Menus/MainMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/NotificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ICar/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/UserManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/use_cases/login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/use_cases/login.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/iCarApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/iCarApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,24 +68,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Gherkin"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Gherkin&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="JUnit.AcceptanceTest">
     <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Solution" />
@@ -153,7 +160,8 @@
       <workItem from="1700857277880" duration="16781000" />
       <workItem from="1702813923376" duration="89000" />
       <workItem from="1703080268471" duration="6518000" />
-      <workItem from="1703111425200" duration="30299000" />
+      <workItem from="1703111425200" duration="30357000" />
+      <workItem from="1703268307526" duration="8936000" />
     </task>
     <task id="LOCAL-00001" summary="first push">
       <created>1696776159200</created>
@@ -197,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703192827916</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="beta 0.5">
+      <created>1703268220246</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1703268220246</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +225,7 @@
     <MESSAGE value="beta 0.2.2" />
     <MESSAGE value="beta 0.3" />
     <MESSAGE value="beta 0.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="beta 0.4" />
+    <MESSAGE value="beta 0.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="beta 0.5" />
   </component>
 </project>
