@@ -31,11 +31,15 @@ public class UserManager {
 
     public User getUserByEmail(String email){
         for (User user : users){
-            if (user.getEmail().equals(email)) {
+            if (user.getEmail().toLowerCase().equals(email.trim().toLowerCase())) {
                 return user;  //Email exists in the database.
             }
         }
         return null;  //Email doesn't exist in the database.
+    }
+
+    public boolean deleteUser(User user) {
+        return users.remove(user);
     }
 
     public User getUserByName(String name){

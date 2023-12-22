@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8533132-ee67-47c4-b6a3-db27801a6f43" name="Changes" comment="beta 0.3">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ICar/ConsoleUI.java" afterDir="false" />
+    <list default="true" id="e8533132-ee67-47c4-b6a3-db27801a6f43" name="Changes" comment="beta 0.4">
+      <change afterPath="$PROJECT_DIR$/src/test/java/icartest/AdminLoginTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/InstallationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/InstallationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/InstallationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/InstallationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Menus/LoginRegisterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/Menus/LoginRegisterMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/NotificationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/OrderManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/ProductManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/ProductManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/iCarApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/iCarApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/ConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/ConsoleUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/use_cases/login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/use_cases/login.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +79,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Application.iCarApp">
+  <component name="RunManager" selected="JUnit.AcceptanceTest">
     <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Solution" />
       <module name="iCar" />
@@ -137,10 +130,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.iCarApp" />
-        <item itemvalue="Application.Solution (1)" />
-        <item itemvalue="Application.Solution" />
         <item itemvalue="JUnit.AcceptanceTest" />
+        <item itemvalue="Application.iCarApp" />
+        <item itemvalue="Application.Solution" />
+        <item itemvalue="Application.Solution (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -160,7 +153,7 @@
       <workItem from="1700857277880" duration="16781000" />
       <workItem from="1702813923376" duration="89000" />
       <workItem from="1703080268471" duration="6518000" />
-      <workItem from="1703111425200" duration="21504000" />
+      <workItem from="1703111425200" duration="30299000" />
     </task>
     <task id="LOCAL-00001" summary="first push">
       <created>1696776159200</created>
@@ -197,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703159484104</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="beta 0.4">
+      <created>1703192827916</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1703192827916</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,6 +209,7 @@
     <MESSAGE value="2/11" />
     <MESSAGE value="beta 0.2.2" />
     <MESSAGE value="beta 0.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="beta 0.3" />
+    <MESSAGE value="beta 0.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="beta 0.4" />
   </component>
 </project>

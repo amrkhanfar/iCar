@@ -13,7 +13,6 @@ public class ConsoleUI {
     private ReviewManager reviewManager;
     private  NotificationService notificationService;
     private OrderManager orderManager;
-
     private Scanner scanner;
 
 
@@ -37,10 +36,10 @@ public class ConsoleUI {
 
             switch (choice) {
                 case 1:
-                    loginUser(scanner);
+                    loginUser();
                     break;
                 case 2:
-                    registerUser(scanner);
+                    registerUser(Rank.USER);
                     break;
                 case 3:
                     System.out.println("Exiting iCar...");
@@ -60,7 +59,7 @@ public class ConsoleUI {
         System.out.print("Enter your choice: ");
     }
 
-    private void loginUser(Scanner scanner) {
+    private void loginUser() {
         System.out.print("Enter your email: ");
         String userInputEmail = scanner.next();
         scanner.nextLine();  // Consume the newline character
@@ -79,13 +78,13 @@ public class ConsoleUI {
         }
     }
 
-    private void registerUser(Scanner scanner) {
+    private void registerUser(String rank) {
         String userInputEmail;
         String userInputPassword;
         String userInputName;
 
         do {
-            System.out.print("Enter your email / Enter # to exit: ");
+            System.out.print("Enter new email / Enter # to exit: ");
             userInputEmail = scanner.next();
             scanner.nextLine();  // Consume the newline character
 
@@ -123,7 +122,7 @@ public class ConsoleUI {
         } while (userInputName.length() < 2);
 
         System.out.println("Your account have been registered successfully.\n\n");
-        userManager.registerUser(userInputName, userInputEmail, userInputPassword, Rank.USER);
+        userManager.registerUser(userInputName, userInputEmail, userInputPassword, rank);
         return;
 
     }
@@ -159,22 +158,19 @@ public class ConsoleUI {
                 manageProducts();
                 break;
             case 2:
-                // Implement category management
-                System.out.println("Managing categories...");
+                manageCategories();
                 break;
             case 3:
-                // Implement user management
-                System.out.println("Managing users...");
-                break;
+                manageUsers();
             case 4:
                 // Implement appointment scheduling
                 System.out.println("Scheduling appointments...");
                 break;
             case 5:
-                viewInstallationRequests();
+                //viewInstallationRequests();
                 break;
             case 6:
-                viewAnalyticsAndReports();
+                //viewAnalyticsAndReports();
                 break;
             case 7:
                 System.out.println("Logging out...");
@@ -182,6 +178,105 @@ public class ConsoleUI {
                 break;
             default:
                 System.out.println("Invalid choice. Please select a valid option.");
+        }
+    }
+
+    public void manageUsers() {
+        System.out.println("---- Manage Users ----");
+        System.out.println("1. View All Users");
+        System.out.println("2. Add User");
+        System.out.println("3. Edit User");
+        System.out.println("4. Remove User");
+        System.out.println("5. Go Back");
+        System.out.print("Enter your choice: ");
+
+        int choice = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline character
+
+        switch (choice) {
+            case 1:
+                viewAllUsers();
+                break;
+            case 2:
+                addUserByAdmin();
+                break;
+            case 3:
+                editUser();
+                break;
+            case 4:
+                removeUser();
+                break;
+            case 5:
+                System.out.println("Returning to the main menu.");
+                break;
+            default:
+                System.out.println("Invalid choice. Please select a valid option.");
+        }
+    }
+
+    private void removeUser() {
+        System.out.print("Enter the email of the user to remove: ");
+        String userEmail = scanner.nextLine();
+
+        User userToRemove = userManager.getUserByEmail(userEmail);
+        if (userToRemove != null) {
+            userManager.deleteUser(userToRemove);
+            System.out.println("User have been removed successfully");
+        } else {
+            System.out.println("There is no user linked to the email you entered");
+        }
+    }
+
+    private void editUser() {
+
+        System.out.println("---- Edit User ----");
+        System.out.print("Enter the email of the user to edit: ");
+        String userEmail = scanner.nextLine();
+
+        User userToEdit = userManager.getUserByEmail(userEmail);
+
+        if (userToEdit != null) {
+            System.out.println("Current User Information:");
+            System.out.println("Name: " + userToEdit.getName());
+            System.out.println("Email: " + userToEdit.getEmail());
+            System.out.println("Role: " + userToEdit.getRank());
+
+            System.out.print("Enter new name (or press Enter to keep current name): ");
+            String newName = scanner.nextLine().trim();
+
+            if (!newName.isEmpty()) {
+                userToEdit.setName(newName);
+            }
+
+            System.out.print("Enter new password (or press Enter to keep current password): ");
+            String newPassword = scanner.nextLine().trim();
+
+            if (!newPassword.isEmpty()) {
+                userToEdit.setPassword(newPassword);
+            }
+
+            System.out.println("User information updated successfully.");
+        } else {
+            System.out.println("User not found with the provided email.");
+        }
+    }
+
+    private void addUserByAdmin() {
+        System.out.print("Enter the role of the new user (admin/user/installer): ");
+        String userToAddRole = scanner.nextLine().trim().toLowerCase();
+        if (userToAddRole.equals(Rank.USER) || userToAddRole.equals(Rank.ADMIN) || userToAddRole.equals(Rank.INSTALLER)) {
+            registerUser(userToAddRole);
+        } else {
+            System.out.println("Invalid input.");
+            return;
+        }
+    }
+    private void viewAllUsers() {
+        System.out.println("---- View All Users ----");
+        ArrayList<User> users = userManager.getUsers();
+
+        for (User user : users) {
+            System.out.println("Name: " + user.getName() + ", Email: " + user.getEmail() + ", Role: " + user.getRank());
         }
     }
 
@@ -235,14 +330,17 @@ public class ConsoleUI {
         Category categoryToEdit = productManager.getCategoryByName(categoryName);
 
         if (categoryToEdit != null) {
-            System.out.print("Enter the new name for the category: ");
+            System.out.print("Enter the new name for the category (or press Enter to keep the current name):  ");
             String newCategoryName = scanner.nextLine();
+            if(!newCategoryName.isEmpty()) {
+                categoryToEdit.setName(newCategoryName);
+            }
 
-            System.out.print("Enter the new description for the category: ");
+            System.out.print("Enter the new description (or press Enter to keep the current description): ");
             String newCategoryDescription = scanner.nextLine();
-
-            categoryToEdit.setName(newCategoryName);
-            categoryToEdit.setDescription(newCategoryDescription);
+            if (!newCategoryDescription.isEmpty()) {
+                categoryToEdit.setDescription(newCategoryDescription);
+            }
 
             System.out.println("Category edited successfully.");
         } else {
@@ -272,7 +370,7 @@ public class ConsoleUI {
     public void manageProducts() {
         while (true) {
             System.out.println("---- Product Management Menu ----");
-            System.out.println("1. Add New Product");
+            System.out.println("1. View All Products");
             System.out.println("2. Add New Product");
             System.out.println("3. Update Product Information");
             System.out.println("4. Remove Product");
