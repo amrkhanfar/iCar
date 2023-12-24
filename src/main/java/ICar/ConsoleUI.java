@@ -568,7 +568,7 @@ public class ConsoleUI {
 
             switch (choice) {
                 case 1:
-                    browseProducts();
+                    browseProductsForAdmin();
                     break;
                 case 2:
                     addNewProduct();
@@ -599,7 +599,7 @@ public class ConsoleUI {
             Category productCategory = productManager.findCategoryByProduct(productToRemove);
 
             if (productCategory != null) {
-                boolean isRemoved = productCategory.removeProduct(productToRemove);
+                boolean isRemoved = productManager.removeProductFromCategory(productToRemove, productCategory);
 
                 if (isRemoved) {
                     System.out.println("Product removed successfully.");
@@ -624,7 +624,7 @@ public class ConsoleUI {
 
         if (productToUpdate != null) {
             System.out.println("Current product information:");
-            productToUpdate.displayProductDetails();
+            productToUpdate.displayProductDetails(reviewManager);
 
 
             System.out.print("Enter new product name (or press Enter to keep the current name): ");
@@ -652,7 +652,7 @@ public class ConsoleUI {
             }
 
             System.out.println("Product updated successfully:");
-            productToUpdate.displayProductDetails();
+            productToUpdate.displayProductDetails(reviewManager);
         } else {
             System.out.println("Product not found.");
         }
@@ -672,7 +672,7 @@ public class ConsoleUI {
         System.out.print("Enter product stock quantity: ");
         int productStock = scanner.nextInt();
 
-        Product newProduct = new Product(productName, productDescription, productPrice, productStock);
+        Product newProduct = new Product(RandomIDGenerator.generateUniqueId(), productName, productDescription, productPrice, productStock);
 
         System.out.println("Select a category to add the product to:");
         productManager.displayCategories();
@@ -729,10 +729,11 @@ public class ConsoleUI {
         for (Category category : productManager.getCategories()) {
             System.out.println("Category: " + category.getName());
             for (Product product : category.getProducts()) {
-                product.displayProductDetails();
+                product.displayProductDetails(reviewManager);
+                reviewManager.viewProductReviews(product);
             }
         }
-        System.out.print("Enter the ID of the product you want to view / 0 to go back: ");
+        System.out.print("Enter the ID of the product to add to your cart / 0 to go back: ");
         int selectedProductId = scanner.nextInt();
         scanner.nextLine();  // Consume the newline character
 
@@ -750,11 +751,74 @@ public class ConsoleUI {
         }
     }
 
+    private void browseProductsForAdmin() {
+        System.out.println("---- Product Catalog ----");
+
+
+        for (Category category : productManager.getCategories()) {
+            System.out.println("Category: " + category.getName());
+            for (Product product : category.getProducts()) {
+                product.displayProductDetails(reviewManager);
+                reviewManager.viewProductReviews(product);
+            }
+        }
+    }
+
     private void viewCart() {
         System.out.println("---- Cart ----");
-        for (Product product : cart) {
-            product.displayProductDetails();
+        for (int i = 0; i <= cart.size(); i++) {
+            Product product = cart.get(i);
+            System.out.println("Index: " + (i+1));
+            product.displayProductDetails(reviewManager);
         }
+        System.out.println("----------------");
+
+        System.out.println("1. Delete item from cart");
+        System.out.println("2. Checkout");
+        System.out.println("0. Go back");
+
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        switch (choice) {
+            case 1:
+                deleteItemFromCart();
+                break;
+            case 2:
+                checkout();
+                break;
+            case 0:
+                return;
+            default:
+                System.out.println("Invalid choice. Please select a valid option.");
+        }
+    }
+
+    private void checkout() {
+        if (cart.isEmpty()) {
+            System.out.println("Your cart is empty. Please add items before checking out.");
+            return;
+        }
+
+        ArrayList<Product> cartCopy = new ArrayList<>(cart);
+
+        orderManager.placeOrder(currentUser, cartCopy);
+        cart.clear();
+
+        System.out.println("Order placed successfully!");
+    }
+    private void deleteItemFromCart() {
+        System.out.println("Enter the index of the item you want to delete:");
+        int index = scanner.nextInt();
+        scanner.nextLine();
+        index--;
+
+        if (index >= 0 && index < cart.size()) {
+            cart.remove(index);
+            System.out.println("Item removed from cart.");
+        } else {
+            System.out.println("Invalid index. Please try again.");
+        }
+        viewCart();
     }
 
     private void viewOrderHistory() {
@@ -776,7 +840,7 @@ public class ConsoleUI {
                 }
                 System.out.println("Products:");
                 for (Product product : order.getProducts()) {
-                    System.out.println("  - " + product.getName() + " | Price: $" + product.getPrice());
+                    System.out.println("  - " + product.getName() + " | Unit Price: $" + product.getPrice() + " | Quantity: "+ order.getProductQuantityInOrder(product));
                 }
 
                 System.out.println("----------------");
@@ -784,19 +848,9 @@ public class ConsoleUI {
 
             }
         }
-
     private void logoutUser() {
         currentUser = null;
         System.out.println("Logged out...");
         System.out.println("Thanks for using iCar.");
     }
-
-
-
-
-
-
-
-
-
 }

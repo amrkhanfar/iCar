@@ -8,12 +8,12 @@ public class Product {
     private boolean available;
     private int id;
 
-    public Product(String name, String description, double price, int stock) {
+    public Product(int id, String name, String description, double price, int stock) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.stock = stock;
-        this.id = RandomIDGenerator.generateUniqueId();
+        this.id = id;
 
         if (stock != 0)
             available = true;
@@ -21,7 +21,7 @@ public class Product {
             available = false;
     }
 
-    public void displayProductDetails() {
+    public void displayProductDetails(ReviewManager reviewManager) {
         System.out.println("---- Product Details ----");
         System.out.println("     ID: " + this.id);
         System.out.println("Name: " + this.name);
@@ -29,8 +29,11 @@ public class Product {
         System.out.println("Price: $" + this.price);
         System.out.println("Available: " + (this.available ? "Yes" : "No"));
 
+        double averageRating = reviewManager.getAverageRatingForProduct(this);
+        System.out.println("Average Rating: " + averageRating);
         System.out.println("-------------------------");
     }
+
 
     public String getName() {
         return name;

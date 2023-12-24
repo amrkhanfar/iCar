@@ -21,8 +21,7 @@ public class Category {
 
     public boolean removeProduct (Product product){
         boolean isRemoved = products.remove(product);
-        return isRemoved; //returns true if the element existed in the first place
-                          //returns false if the element didn't exist
+        return isRemoved;
 
     }
 

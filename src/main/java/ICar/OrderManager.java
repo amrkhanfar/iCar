@@ -14,13 +14,13 @@ public class OrderManager {
         this.notificationService = notificationService;
     }
 
-    public void placeOrder(int id, LocalDateTime date, User customer, ArrayList<Product> cart) {
-        Order order = new Order(id, date, customer, cart);
+    public void placeOrder(User customer, ArrayList<Product> cart) {
+        Order order = new Order(RandomIDGenerator.generateUniqueId(), LocalDateTime.now(), customer, cart);
         orders.add(order);
         notificationService.sendOrderConfirmationNotification(customer, order);
     }
 
-    public Order getOrderDetails(int orderID) {
+    public Order getOrderByID(int orderID) {
         for (Order order : orders) {
             if (order.getOrderID() == orderID) {
                 return order;

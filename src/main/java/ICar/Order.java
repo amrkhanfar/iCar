@@ -2,6 +2,7 @@ package ICar;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 public class Order {
@@ -17,7 +18,9 @@ public class Order {
         this.customer = customer;
         this.products = products;
     }
-
+    public int getProductQuantityInOrder(Product product) {
+        return Collections.frequency(products,product);
+    }
     public double calculateCost() {
         double cost = 0.0;
         for (Product product : products){
