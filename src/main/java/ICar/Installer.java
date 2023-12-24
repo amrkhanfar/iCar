@@ -17,7 +17,9 @@ public class Installer {
         this.assignedRequests = new ArrayList<>(); // Initialize as ArrayList
     }
 
-
+    public User getUserClassProfile() {
+        return userClassProfile;
+    }
 
     public String getName() {
         return name;

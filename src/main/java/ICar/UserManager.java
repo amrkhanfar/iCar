@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 public class UserManager {
     private ArrayList<User> users;  //temporary array list until a data base is created
+    InstallationManager installationManager;
 
-    public UserManager(){
+    public UserManager(InstallationManager installationManager){
         users = new ArrayList<User>(); //initializing the array list
-
+        this.installationManager = installationManager;
         users.add( new User("Amr Khanfar", "ultraakch@gmail.com", "123456", Rank.ADMIN));
     }
 
@@ -17,6 +18,9 @@ public class UserManager {
         }
         User newUser = new User(name, email, password, role);
         users.add(newUser);
+        if (role.equals(Rank.INSTALLER)) {
+            installationManager.registerInstaller(newUser);
+        }
         return newUser;
     }
 
@@ -39,7 +43,19 @@ public class UserManager {
     }
 
     public boolean deleteUser(User user) {
-        return users.remove(user);
+
+        if (users.contains(user)) {
+            Boolean isUserObjectRemoved = users.remove(user);
+            Boolean isInstallerRemoved = true;
+            if (user.getRank().equals(Rank.INSTALLER)) {
+                isInstallerRemoved = installationManager.removeInstaller(user);
+            }
+
+            return (isInstallerRemoved && isUserObjectRemoved);
+        } else {
+            return false;
+        }
+
     }
 
     public User getUserByName(String name){

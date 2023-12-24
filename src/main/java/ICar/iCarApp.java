@@ -23,9 +23,10 @@ public class iCarApp {
     public static void main(String[] args) {
 
 
-        userManager = new UserManager();
+
         productManager =  new ProductManager();
-        installationManager = new InstallationManager();
+        installationManager = new InstallationManager(notificationService);
+        userManager = new UserManager(installationManager);
         reviewManager = new ReviewManager();
         notificationService = new NotificationService(userManager.getUsers(), "ultraakch@gmail.com", "wgva fubp arbg rljf");
         orderManager = new OrderManager(notificationService);

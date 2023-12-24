@@ -1,8 +1,6 @@
 package icartest;
 
-import ICar.Rank;
-import ICar.User;
-import ICar.UserManager;
+import ICar.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
@@ -12,7 +10,8 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 public class UserManagerSteps {
-
+    private InstallationManager installationManager;
+    private NotificationService notificationService;
     private UserManager userManager;
     private User newUser;
     private User loggedinUser;
@@ -21,7 +20,10 @@ public class UserManagerSteps {
 
     @Given("the user manager is initialized")
     public void the_user_manager_is_initialized() {
-        userManager = new UserManager();
+
+        userManager = new UserManager(installationManager);
+        notificationService = new NotificationService(userManager.getUsers(), "ultraakch@.com", "wgva fubp arbg rljf");
+        installationManager = new InstallationManager(notificationService);
     }
     @When("a user with name {string}, email {string}, password {string}, and role {string} registers")
     public void a_user_with_name_email_password_and_role_registers(String name, String email, String password, String role) {

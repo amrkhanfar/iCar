@@ -54,7 +54,7 @@ public class ConsoleUI {
     }
 
     private void displayMainMenu() {
-        System.out.println("\n\n--- Welcome " + currentUser.getName() + " to iCar ---");
+        System.out.println("\n\n--- Welcome to iCar ---");
         System.out.println("1. Login");
         System.out.println("2. Register");
         System.out.println("3. Exit");
@@ -74,7 +74,7 @@ public class ConsoleUI {
         currentUser = userManager.authenticateUser(userInputEmail, userInputPassword);
 
         if (currentUser == null) {
-            System.out.print( "\n\n\n\n\n\n\n\n\n\n" + "Email/Password you've entered is wrong" + "\n\n\n\n");
+            System.out.print( "\n\n\n\n\n\n\n\n\n\n" + "Email/Password you've entered are wrong" + "\n\n\n\n");
         } else {
             handleLoggedInUser();
         }
@@ -111,7 +111,7 @@ public class ConsoleUI {
             if (userInputPassword.length() < 8) {
                 System.out.println("Password must be at least 8 characters long. Please try again.\n");
             }
-        } while (userInputPassword.length() < 8);
+        } while (userInputPassword.length() <= 8);
 
         do {
             System.out.print("Enter your full name: ");
@@ -150,11 +150,14 @@ public class ConsoleUI {
                     handleAdminMenuChoice(choice);
                 }
             case Rank.INSTALLER:
-                displayInstallerMenu();
-                choice = scanner.nextInt();
-                scanner.nextLine(); // Consume the newline character
 
+                while (currentUser != null) {
+                    displayInstallerMenu();
+                    choice = scanner.nextInt();
+                    scanner.nextLine(); // Consume the newline character
 
+                    handleInstallerMenuChoice(choice);
+                }
         }
     }
     private void handleInstallerMenuChoice(int choice) {
@@ -337,10 +340,7 @@ public class ConsoleUI {
             }
         }
 
-        installationManager.assignInstallerToRequest(selectedInstallationRequest,selectedInstaller);
-        selectedInstallationRequest.setScheduledDateTime(scheduledDateTime);
-        notificationService.sendInstallationRequestNotification(selectedInstaller,selectedInstallationRequest);
-
+        installationManager.assignInstallerToRequest(selectedInstallationRequest,selectedInstaller,scheduledDateTime);
 
     }
 
@@ -450,11 +450,10 @@ public class ConsoleUI {
         } else if (userToAddRole.equals(Rank.INSTALLER)) {
             User installerToRegister = registerUser(userToAddRole);
             if (installerToRegister != null) {
-
+                installationManager.registerInstaller(installerToRegister);
             }
         } else {
             System.out.println("Invalid input.");
-            return;
         }
     }
     private void viewAllUsers() {
@@ -766,6 +765,10 @@ public class ConsoleUI {
 
     private void viewCart() {
         System.out.println("---- Cart ----");
+        if (cart.isEmpty()) {
+            System.out.println("Your cart is empty");
+            return;
+        }
         for (int i = 0; i <= cart.size(); i++) {
             Product product = cart.get(i);
             System.out.println("Index: " + (i+1));

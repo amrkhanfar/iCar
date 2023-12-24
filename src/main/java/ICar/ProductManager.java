@@ -54,6 +54,17 @@ public class ProductManager {
         return null; // Product not found
     }
 
+    public Product findProductByName(String productName) {
+        for (Category category : categories) {
+            for (Product product : category.getProducts()) {
+                if (product.getName().trim().toLowerCase().equals(productName.trim().toLowerCase())) {
+                    return product;
+                }
+            }
+        }
+        return null; // Product not found
+    }
+
     public Category addCategory(Category category){
         categories.add(category);
         return category;

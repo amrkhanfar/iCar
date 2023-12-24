@@ -4,26 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8533132-ee67-47c4-b6a3-db27801a6f43" name="Changes" comment="Finished the admin menu and installer menu.">
-      <change afterPath="$PROJECT_DIR$/.idea/easycode/codebase-v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/icartest/ProductManagerSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/icartest/UserManagerSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/use_cases/productManager.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/use_cases/userManager.feature" afterDir="false" />
+    <list default="true" id="e8533132-ee67-47c4-b6a3-db27801a6f43" name="Changes" comment="Tested productManager and userManager">
+      <change afterPath="$PROJECT_DIR$/src/test/java/icartest/InstallationManagerSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/icartest/OrderManagerSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/icartest/ReviewManagerSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/use_cases/installationManager.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/use_cases/orderManager.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/use_cases/reviewManager.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/Category.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ICar/ConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/ConsoleUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/InstallationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/InstallationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/InstallationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/InstallationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Installer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/Installer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/NotificationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ICar/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/OrderManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/icartest/AdminLoginTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/icartest/CheckOutSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/use_cases/login.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/ProductManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/ProductManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/ReviewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/ReviewManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/iCarApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/iCarApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/icartest/UserManagerSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/UserManagerSteps.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\HP Eliet\Desktop\iCar\htmlReport" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -80,6 +87,9 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.obiscr.chatgpt.settings.OpenAISettings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -167,6 +177,8 @@
       <workItem from="1703268307526" duration="9774000" />
       <workItem from="1703332210593" duration="21426000" />
       <workItem from="1703372189930" duration="329000" />
+      <workItem from="1703420761603" duration="8046000" />
+      <workItem from="1703429222551" duration="16993000" />
     </task>
     <task id="LOCAL-00001" summary="first push">
       <created>1696776159200</created>
@@ -224,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703279597235</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Tested productManager and userManager">
+      <created>1703420889880</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1703420889880</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,10 +269,16 @@
     <MESSAGE value="beta 0.4" />
     <MESSAGE value="beta 0.5" />
     <MESSAGE value="Finished the admin menu and installer menu." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished the admin menu and installer menu." />
+    <MESSAGE value="Tested productManager and userManager" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tested productManager and userManager" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/iCar$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703457826693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>icartest.*</FILTER>
+    </SUITE>
   </component>
 </project>

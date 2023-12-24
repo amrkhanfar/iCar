@@ -24,8 +24,8 @@ public class InstallationRequest {
 
 
 
-    public InstallationRequest(Order order, User customer) {
-        this.id = RandomIDGenerator.generateUniqueId();
+    public InstallationRequest(int ID, Order order, User customer) {
+        this.id = ID;
         this.order = order;
         this.customer = customer;
         this.status = Status.PENDING;
@@ -33,10 +33,6 @@ public class InstallationRequest {
     }
 
 
-    public void assignInstaller(Installer installer) {
-        this.assignedInstaller = installer;
-        this.status = Status.SCHEDULED; // Update status to SCHEDULED when assigned
-    }
 
     public void completeRequest() {
         this.status = Status.COMPLETED;
@@ -51,13 +47,19 @@ public class InstallationRequest {
     }
 
     public String getRequestDetails() {
-        return "Installation Request ID: " + id + "\n" +
+
+        String allDetails = "Installation Request ID: " + id + "\n" +
                 "Order ID: " + order.getOrderID() + "\n" +
                 "Customer Name: " + customer.getName() + "\n" +
-                "Scheduled Date/Time: " + scheduledDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")) + "\n" +
-                "Assigned Installer: " + (assignedInstaller != null ? assignedInstaller.getName() : "Not Assigned") + "\n" +
                 "Status: " + status.toString() + "\n" +
                 "Notes: " + notes;
+
+        if (!status.equals(Status.PENDING)) {
+            String detailsForScheduledOnly = "\nScheduled Date/Time: " + scheduledDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")) + "\n" +
+                    "Assigned Installer: " + (assignedInstaller != null ? assignedInstaller.getName() : "Not Assigned") + "\n";
+            allDetails = allDetails + detailsForScheduledOnly;
+        }
+        return allDetails;
     }
 
     public int getId() {

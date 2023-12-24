@@ -17,7 +17,6 @@ public class NotificationService {
     private final String senderPassword;
 
     public NotificationService(ArrayList<User> users, String senderEmail, String senderPassword) {
-        this.users = users;
         this.senderEmail = senderEmail;
         this.senderPassword = senderPassword;
     }
@@ -63,5 +62,9 @@ public class NotificationService {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
     }
 }

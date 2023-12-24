@@ -1,20 +1,31 @@
 package ICar;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+
+
 
 public class InstallationManager {
 
     private ArrayList<InstallationRequest> installationRequests;
     private ArrayList<Installer> installers;
 
-    public InstallationManager() {
+    private NotificationService notificationService;
+    public InstallationManager(NotificationService notificationService) {
         this.installationRequests = new ArrayList<InstallationRequest>();
         this.installers = new ArrayList<Installer>();
     }
 
-    public void addInstallationRequest(InstallationRequest request) {
-        installationRequests.add(request);
-        System.out.println("Installation request added successfully.");
+    public void setNotificationService(NotificationService notificationService) {
+        this.notificationService = notificationService;
+    }
+
+    public InstallationRequest makeInstallationRequest(Order order, String notes) {
+        InstallationRequest installationRequest = new InstallationRequest(RandomIDGenerator.generateUniqueId(),order,order.getCustomer());
+        installationRequest.setNotes(notes);
+        installationRequests.add(installationRequest);
+
+        return installationRequest;
     }
 
     public void viewInstallationRequests() {
@@ -29,19 +40,19 @@ public class InstallationManager {
         }
     }
 
-    public void assignInstallerToRequest(InstallationRequest installationRequest, Installer installer) {
-        installationRequest.assignInstaller(installer);
+    public void assignInstallerToRequest(InstallationRequest installationRequest, Installer installer, LocalDateTime scheduledDateTime) {
+        installationRequest.setAssignedInstaller(installer);
+        installationRequest.setStatus(InstallationRequest.Status.SCHEDULED);
         installer.getAssignedRequests().add(installationRequest);
+        installationRequest.setScheduledDateTime(scheduledDateTime);
+
+        notificationService.sendInstallationRequestNotification(installer, installationRequest);
+
     }
 
-    public void completeInstallationRequest(int requestId) {
-        InstallationRequest request = findInstallationRequestById(requestId);
-        if (request != null && request.getStatus() == InstallationRequest.Status.SCHEDULED) {
+    public void completeInstallationRequest(InstallationRequest request) {
             request.completeRequest();
             System.out.println("Installation request completed successfully.");
-        } else {
-            System.out.println("Invalid request ID or the request is not scheduled.");
-        }
     }
 
     public InstallationRequest findInstallationRequestById(int requestId) {
@@ -82,6 +93,11 @@ public class InstallationManager {
 
         installers.add(installerToRegister);
         return installerToRegister;
+    }
+
+    public Boolean removeInstaller (User user) {
+        Installer installerToRemove = getInstallerByName(user.getName());
+        return installers.remove(installerToRemove);
     }
 
     public ArrayList<Installer> getInstallers() {

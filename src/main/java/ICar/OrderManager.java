@@ -14,10 +14,17 @@ public class OrderManager {
         this.notificationService = notificationService;
     }
 
-    public void placeOrder(User customer, ArrayList<Product> cart) {
+    public Order placeOrder(User customer, ArrayList<Product> cart) {
+        if (cart.isEmpty()) {
+            return null;
+        }
+
+        ArrayList<Product> orderProducts = new ArrayList<Product>(cart);  //creating a clone
         Order order = new Order(RandomIDGenerator.generateUniqueId(), LocalDateTime.now(), customer, cart);
         orders.add(order);
         notificationService.sendOrderConfirmationNotification(customer, order);
+        cart.clear();
+        return order;
     }
 
     public Order getOrderByID(int orderID) {

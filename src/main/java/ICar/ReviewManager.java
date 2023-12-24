@@ -13,13 +13,12 @@ public class ReviewManager {
     public void addProductReview(User reviewer, Product product, String content, int rating) {
         Review review = new Review(generateReviewId(), content, rating, reviewer, product);
         reviews.add(review);
-        System.out.println("Product review added successfully.");
+        System.out.println("Product review added successfully. (" + product.getName() + ")");
     }
 
     public void addInstallationRequestReview(User reviewer, InstallationRequest installationRequest, String content, int rating) {
         Review review = new Review(generateReviewId(), content, rating, reviewer, installationRequest);
         reviews.add(review);
-        System.out.println("Installation request review added successfully.");
     }
 
     public double getAverageRatingForProduct(Product product) {
@@ -46,16 +45,29 @@ public class ReviewManager {
         }
     }
 
-    public void viewInstallationRequestReviews(InstallationRequest installationRequest) {
-        System.out.println("Installation Request Reviews for Request ID " + installationRequest.getId() + ":\n");
+    public ArrayList<Review> getProductReviews(Product product) {
+        ArrayList<Review> productReviews = new ArrayList<Review>();
         for (Review review : reviews) {
-            if (review.getReviewedInstallationRequest() != null && review.getReviewedInstallationRequest().equals(installationRequest)) {
-                displayReviewDetails(review);
+            if (review.getReviewedProduct() != null && review.getReviewedProduct().equals(product)) {
+                productReviews.add(review);
             }
         }
+        return productReviews;
     }
 
-    private void displayReviewDetails(Review review) {
+    public ArrayList<Review> getInstallationRequestReviews(InstallationRequest installationRequest) {
+        ArrayList<Review> installationReviews = new ArrayList<Review>();
+        for (Review review : reviews) {
+            if (review.getReviewedInstallationRequest().equals(installationRequest)) {
+                installationReviews.add(review);
+            }
+        }
+        return installationReviews;
+    }
+
+
+
+    public void displayReviewDetails(Review review) {
         System.out.println("Review ID: " + review.getReviewId());
         System.out.println("Rating: " + review.getRating());
         System.out.println("Content: " + review.getContent());
