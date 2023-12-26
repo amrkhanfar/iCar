@@ -35,14 +35,7 @@ public class iCarApp {
 
 
         ConsoleUI consoleUI = new ConsoleUI(userManager,productManager,installationManager,reviewManager,notificationService,orderManager,cart);
-        consoleUI.start();
-
-
-
-
-
-
-
+        consoleUI.start(); //gg
 
         }
 
