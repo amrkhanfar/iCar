@@ -1,8 +1,7 @@
-package ICar;
+package icar;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class OrderManager {
     private ArrayList<Order> orders;
@@ -10,7 +9,7 @@ public class OrderManager {
 
     public OrderManager(NotificationService notificationService)
     {
-        orders = new ArrayList<Order>();
+        orders = new ArrayList<>();
         this.notificationService = notificationService;
     }
 
@@ -19,7 +18,7 @@ public class OrderManager {
             return null;
         }
 
-        ArrayList<Product> orderProducts = new ArrayList<Product>(cart);  //creating a clone
+        ArrayList<Product> orderProducts = new ArrayList<>(cart);  //creating a clone
         Order order = new Order(RandomIDGenerator.generateUniqueId(), LocalDateTime.now(), customer, cart);
         orders.add(order);
         notificationService.sendOrderConfirmationNotification(customer, order);

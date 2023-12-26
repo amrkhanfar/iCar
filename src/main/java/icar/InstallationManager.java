@@ -1,4 +1,4 @@
-package ICar;
+package icar;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -12,8 +12,8 @@ public class InstallationManager {
 
     private NotificationService notificationService;
     public InstallationManager(NotificationService notificationService) {
-        this.installationRequests = new ArrayList<InstallationRequest>();
-        this.installers = new ArrayList<Installer>();
+        this.installationRequests = new ArrayList<>();
+        this.installers = new ArrayList<>();
     }
 
     public void setNotificationService(NotificationService notificationService) {
@@ -54,7 +54,7 @@ public class InstallationManager {
     }
 
     public ArrayList<InstallationRequest> getPendingInstallationRequest() {
-        ArrayList<InstallationRequest> pendingRequests = new ArrayList<InstallationRequest>();
+        ArrayList<InstallationRequest> pendingRequests = new ArrayList<>();
 
         for (InstallationRequest installationRequest : getInstallationRequests()) {
             if(installationRequest.getStatus() == InstallationRequest.Status.PENDING) {

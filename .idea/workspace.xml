@@ -4,10 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8533132-ee67-47c4-b6a3-db27801a6f43" name="Changes" comment="still trying to figure out the jacoco thingey">
+    <list default="true" id="e8533132-ee67-47c4-b6a3-db27801a6f43" name="Changes" comment="Fixed a security issue in NotificationService.java&#10;and corrected a bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/NotificationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/ConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/ConsoleUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/InstallationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/InstallationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/InstallationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/InstallationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Installer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/Installer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/NotificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/OrderManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/ProductManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/ProductManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/RandomIDGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/RandomIDGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Rank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/Rank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/ReviewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/ReviewManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/iCarApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/iCarApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/icartest/InstallationManagerSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/InstallationManagerSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/icartest/OrderManagerSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/OrderManagerSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/icartest/ProductManagerSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/ProductManagerSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/icartest/ReviewManagerSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/ReviewManagerSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/icartest/UserManagerSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/UserManagerSteps.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +104,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Application.iCarApp">
+  <component name="RunManager" selected="JUnit.AcceptanceTest">
     <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Solution" />
       <module name="iCar" />
@@ -106,11 +126,11 @@
       </method>
     </configuration>
     <configuration name="iCarApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ICar.iCarApp" />
+      <option name="MAIN_CLASS_NAME" value="icar.iCarApp" />
       <module name="iCar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ICar.*" />
+          <option name="PATTERN" value="icar.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -126,7 +146,7 @@
           <option name="ENABLED" value="true" />
         </pattern>
         <pattern>
-          <option name="PATTERN" value="ICar.*" />
+          <option name="PATTERN" value="icar.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -140,8 +160,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.iCarApp" />
         <item itemvalue="JUnit.AcceptanceTest" />
+        <item itemvalue="Application.iCarApp" />
         <item itemvalue="Application.Solution" />
         <item itemvalue="Application.Solution (1)" />
       </list>
@@ -170,7 +190,7 @@
       <workItem from="1703420761603" duration="8046000" />
       <workItem from="1703429222551" duration="17904000" />
       <workItem from="1703581618225" duration="12539000" />
-      <workItem from="1703601001902" duration="1334000" />
+      <workItem from="1703601001902" duration="2762000" />
     </task>
     <task id="LOCAL-00001" summary="first push">
       <created>1696776159200</created>
@@ -361,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703597216659</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Fixed a security issue in NotificationService.java&#10;and corrected a bug">
+      <created>1703605059004</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1703605059004</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,7 +420,8 @@
     <MESSAGE value="." />
     <MESSAGE value="trying to figure out the jacoco thingey" />
     <MESSAGE value="still trying to figure out the jacoco thingey" />
-    <option name="LAST_COMMIT_MESSAGE" value="still trying to figure out the jacoco thingey" />
+    <MESSAGE value="Fixed a security issue in NotificationService.java&#10;and corrected a bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a security issue in NotificationService.java&#10;and corrected a bug" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

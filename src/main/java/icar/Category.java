@@ -1,4 +1,4 @@
-package ICar;
+package icar;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ public class Category {
     public Category(String name, String description) {
         this.name = name;
         this.description = description;
-        this.products = new ArrayList<Product>();
+        this.products = new ArrayList<>();
     }
 
     public void addProduct (Product product){
@@ -20,9 +20,7 @@ public class Category {
 
 
     public boolean removeProduct (Product product){
-        boolean isRemoved = products.remove(product);
-        return isRemoved;
-
+        return products.remove(product);
     }
 
     public ArrayList<Product> getProducts (){

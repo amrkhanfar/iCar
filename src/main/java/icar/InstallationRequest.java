@@ -1,4 +1,4 @@
-package ICar;
+package icar;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

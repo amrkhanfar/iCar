@@ -1,6 +1,4 @@
-package ICar;
-
-import io.cucumber.java.sl.In;
+package icar;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,7 +12,6 @@ public class ConsoleUI {
     private ProductManager productManager;
     private InstallationManager installationManager;
     private ReviewManager reviewManager;
-    private  NotificationService notificationService;
     private OrderManager orderManager;
     private Scanner scanner;
 
@@ -23,7 +20,6 @@ public class ConsoleUI {
         this.productManager =  productManager;
         this.installationManager = installationManager;
         this.reviewManager = reviewManager;
-        this.notificationService = notificationService;
         this.orderManager = orderManager;
         scanner = new Scanner(System.in);
         this.cart = cart;
@@ -158,6 +154,9 @@ public class ConsoleUI {
 
                     handleInstallerMenuChoice(choice);
                 }
+
+            default:
+
         }
     }
     private void handleInstallerMenuChoice(int choice) {

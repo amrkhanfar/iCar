@@ -1,4 +1,4 @@
-package ICar;
+package icar;
 
 public class Rank {
     public static final String ADMIN = "admin";

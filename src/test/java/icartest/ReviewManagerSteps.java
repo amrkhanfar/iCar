@@ -3,7 +3,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import static org.junit.Assert.*;
-import ICar.*;
+import icar.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

@@ -1,6 +1,4 @@
-package ICar;
-
-import java.util.ArrayList;
+package icar;
 
 public class User {
     private String name;

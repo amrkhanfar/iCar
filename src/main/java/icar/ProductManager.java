@@ -1,6 +1,5 @@
-package ICar;
+package icar;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 public class ProductManager {

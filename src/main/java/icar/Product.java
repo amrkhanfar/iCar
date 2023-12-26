@@ -1,4 +1,4 @@
-package ICar;
+package icar;
 
 public class Product {
     private String name;

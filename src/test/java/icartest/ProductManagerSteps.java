@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import ICar.Category;
-import ICar.Product;
-import ICar.ProductManager;
+import icar.Category;
+import icar.Product;
+import icar.ProductManager;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
