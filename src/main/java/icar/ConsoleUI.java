@@ -15,14 +15,14 @@ public class ConsoleUI {
     private OrderManager orderManager;
     private Scanner scanner;
 
-    public ConsoleUI(UserManager userManager, ProductManager productManager, InstallationManager installationManager, ReviewManager reviewManager, NotificationService notificationService, OrderManager orderManager, ArrayList<Product> cart) {
+    public ConsoleUI(UserManager userManager, ProductManager productManager, InstallationManager installationManager, ReviewManager reviewManager, OrderManager orderManager) {
         this.userManager = userManager;
         this.productManager =  productManager;
         this.installationManager = installationManager;
         this.reviewManager = reviewManager;
         this.orderManager = orderManager;
         scanner = new Scanner(System.in);
-        this.cart = cart;
+        this.cart = new ArrayList<>();
     }
 
     public void start() {
@@ -156,7 +156,7 @@ public class ConsoleUI {
                 }
 
             default:
-
+                break;
         }
     }
     private void handleInstallerMenuChoice(int choice) {

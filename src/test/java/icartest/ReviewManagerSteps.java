@@ -19,15 +19,15 @@ public class ReviewManagerSteps {
     Product product;
     Category category;
     InstallationRequest installationRequest;
+    Order order;
 
     @Given("all the mangers for reviewManagerSteps are initialized")
     public void all_the_mangers_for_review_manager_steps_are_initialized() {
         reviewManager = new ReviewManager();
         installationManager = new InstallationManager(null);
         userManager = new UserManager(installationManager);
-        notificationService = new NotificationService(userManager.getUsers(), "ultraakch@.com", "wgva fubp arbg rljf");
+        notificationService = new NotificationService("ultraakch@.com", "wgva fubp arbg rljf");
         installationManager.setNotificationService(notificationService);
-        notificationService.setUsers(userManager.getUsers());
         orderManager = new OrderManager(notificationService);
         productManager = new ProductManager();
     }
@@ -82,7 +82,7 @@ public class ReviewManagerSteps {
         ArrayList<Product> cart = new ArrayList<Product>();
         cart.add(product);
 
-        Order order = orderManager.placeOrder(user,cart);
+        order = orderManager.placeOrder(user,cart);
         assertNotNull(order);
         installationRequest = installationManager.makeInstallationRequest(order, "no notes.");
     }
@@ -105,7 +105,9 @@ public class ReviewManagerSteps {
     }
     @Then("the installation request should have a review")
     public void the_installation_request_should_have_a_review() {
+       InstallationRequest installationRequest1 =  installationManager.checkIfOrderHasInstallationRequest(order);
        assertFalse(reviewManager.getInstallationRequestReviews(installationRequest).isEmpty());
+       assertEquals(installationRequest1,installationRequest);
     }
     @Then("the review should be displayed in the installation request reviews")
     public void the_review_should_be_displayed_in_the_installation_request_reviews() {

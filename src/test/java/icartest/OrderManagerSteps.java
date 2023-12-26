@@ -25,7 +25,7 @@ public class OrderManagerSteps {
         installationManager = new InstallationManager(notificationService);
         userManager = new UserManager(installationManager);
         productManager = new ProductManager();
-        notificationService = new NotificationService(userManager.getUsers(), "ultraakch@.com", "wgva fubp arbg rljf");
+        notificationService = new NotificationService("ultraakch@.com", "wgva fubp arbg rljf");
         orderManager = new OrderManager(notificationService);
         cart = new ArrayList<Product>();
     }

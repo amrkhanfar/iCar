@@ -22,7 +22,7 @@ public class UserManagerSteps {
     public void the_user_manager_is_initialized() {
 
         userManager = new UserManager(installationManager);
-        notificationService = new NotificationService(userManager.getUsers(), "ultraakch@.com", "wgva fubp arbg rljf");
+        notificationService = new NotificationService("ultraakch@.com", "wgva fubp arbg rljf");
         installationManager = new InstallationManager(notificationService);
     }
     @When("a user with name {string}, email {string}, password {string}, and role {string} registers")

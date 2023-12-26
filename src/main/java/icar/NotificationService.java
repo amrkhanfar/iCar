@@ -10,11 +10,10 @@ import java.util.ArrayList;
 
 public class NotificationService {
 
-    private ArrayList<User> users;
     private final String senderEmail;
     private final String senderPassword;
 
-    public NotificationService(ArrayList<User> users, String senderEmail, String senderPassword) {
+    public NotificationService(String senderEmail, String senderPassword) {
         this.senderEmail = senderEmail;
         this.senderPassword = senderPassword;
     }
@@ -62,7 +61,4 @@ public class NotificationService {
         }
     }
 
-    public void setUsers(ArrayList<User> users) {
-        this.users = users;
-    }
 }

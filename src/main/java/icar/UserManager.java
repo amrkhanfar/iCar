@@ -7,7 +7,7 @@ public class UserManager {
     InstallationManager installationManager;
 
     public UserManager(InstallationManager installationManager){
-        users = new ArrayList<User>(); //initializing the array list
+        users = new ArrayList<>(); //initializing the array list
         this.installationManager = installationManager;
         users.add( new User("Amr Khanfar", "ultraakch@gmail.com", "123456", Rank.ADMIN));
     }
@@ -68,7 +68,7 @@ public class UserManager {
     }
 
     public ArrayList<User> getUsersByRole(String role) {
-        ArrayList<User> list = new ArrayList<User>();
+        ArrayList<User> list = new ArrayList<>();
 
         for (User user : users) {
             if (user.getRank().equals(role.trim().toLowerCase())) {

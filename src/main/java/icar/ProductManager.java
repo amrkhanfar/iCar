@@ -8,7 +8,7 @@ public class ProductManager {
 
 
     public ProductManager(){
-        categories = new ArrayList<Category>(); //initializing categories array list until a database is connected
+        categories = new ArrayList<>(); //initializing categories array list until a database is connected
 
 //        interiorCategory = new Category("Interior", "Accessories for the car's interior.");
 //        exteriorCategory = new Category("Exterior", "Accessories for the car's exterior.");

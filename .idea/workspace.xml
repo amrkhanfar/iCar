@@ -4,28 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8533132-ee67-47c4-b6a3-db27801a6f43" name="Changes" comment="Fixed a security issue in NotificationService.java&#10;and corrected a bug">
+    <list default="true" id="e8533132-ee67-47c4-b6a3-db27801a6f43" name="Changes" comment="Fixed some bad smells">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/ConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/ConsoleUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/InstallationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/InstallationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/InstallationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/InstallationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Installer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/Installer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/NotificationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/OrderManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/ProductManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/ProductManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/RandomIDGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/RandomIDGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Rank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/Rank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/ReviewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/ReviewManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/UserManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/iCarApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/iCarApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/icar/ConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/ConsoleUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/icar/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/NotificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/icar/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/OrderManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/icar/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/icar/ProductManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/ProductManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/icar/Rank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/Rank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/icar/ReviewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/ReviewManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/icar/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/icar/iCarApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/iCarApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/icartest/AcceptanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/AcceptanceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/icartest/InstallationManagerSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/InstallationManagerSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/icartest/OrderManagerSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/OrderManagerSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/icartest/ProductManagerSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/ProductManagerSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/icartest/ReviewManagerSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/ReviewManagerSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/icartest/UserManagerSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/UserManagerSteps.java" afterDir="false" />
     </list>
@@ -35,6 +27,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
     <option name="OUTPUT_DIRECTORY" value="C:\Users\HP Eliet\Desktop\iCar\htmlReport" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -95,7 +88,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -146,7 +139,63 @@
           <option name="ENABLED" value="true" />
         </pattern>
         <pattern>
-          <option name="PATTERN" value="icar.*" />
+          <option name="PATTERN" value="icar.UserManager" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="icar.User" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="icar.ReviewManager" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="icar.Review" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="icar.Rank" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="icar.RandomIDGenerator" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="icar.ProductManager" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="icar.Product" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="icar.OrderManager" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="icar.Order" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="icar.NotificationService" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="icar.Installer" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="icar.InstallationRequest" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="icar.InstallationManager" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="icar.Category" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -158,10 +207,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Write tests for class UserManager" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration">
+      <module name="iCar" />
+      <settings run-config-name="Write tests for class UserManager" include-system-env-vars="true">
+        <jvm-args />
+        <selection-scope>class</selection-scope>
+        <selected-element key="icar.UserManager" />
+      </settings>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.AcceptanceTest" />
         <item itemvalue="Application.iCarApp" />
+        <item itemvalue="Diffblue Cover.Write tests for class UserManager" />
         <item itemvalue="Application.Solution" />
         <item itemvalue="Application.Solution (1)" />
       </list>
@@ -190,7 +249,10 @@
       <workItem from="1703420761603" duration="8046000" />
       <workItem from="1703429222551" duration="17904000" />
       <workItem from="1703581618225" duration="12539000" />
-      <workItem from="1703601001902" duration="2762000" />
+      <workItem from="1703601001902" duration="4248000" />
+      <workItem from="1703607814232" duration="1087000" />
+      <workItem from="1703608935270" duration="429000" />
+      <workItem from="1703610064852" duration="4385000" />
     </task>
     <task id="LOCAL-00001" summary="first push">
       <created>1696776159200</created>
@@ -388,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703605059004</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Fixed some bad smells">
+      <created>1703606372430</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1703606372430</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,16 +490,31 @@
     <MESSAGE value="trying to figure out the jacoco thingey" />
     <MESSAGE value="still trying to figure out the jacoco thingey" />
     <MESSAGE value="Fixed a security issue in NotificationService.java&#10;and corrected a bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed a security issue in NotificationService.java&#10;and corrected a bug" />
+    <MESSAGE value="Fixed some bad smells" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some bad smells" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/iCar$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703582213604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/iCar$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703615012880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>icartest.*</FILTER>
-      <FILTER>ICar.*</FILTER>
+      <FILTER>icar.UserManager</FILTER>
+      <FILTER>icar.User</FILTER>
+      <FILTER>icar.ReviewManager</FILTER>
+      <FILTER>icar.Review</FILTER>
+      <FILTER>icar.Rank</FILTER>
+      <FILTER>icar.RandomIDGenerator</FILTER>
+      <FILTER>icar.ProductManager</FILTER>
+      <FILTER>icar.Product</FILTER>
+      <FILTER>icar.OrderManager</FILTER>
+      <FILTER>icar.Order</FILTER>
+      <FILTER>icar.NotificationService</FILTER>
+      <FILTER>icar.Installer</FILTER>
+      <FILTER>icar.InstallationRequest</FILTER>
+      <FILTER>icar.InstallationManager</FILTER>
+      <FILTER>icar.Category</FILTER>
     </SUITE>
   </component>
 </project>

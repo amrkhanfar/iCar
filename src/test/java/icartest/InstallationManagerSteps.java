@@ -31,9 +31,8 @@ public class InstallationManagerSteps {
         reviewManager = new ReviewManager();
         installationManager = new InstallationManager(null);
         userManager = new UserManager(installationManager);
-        notificationService = new NotificationService(userManager.getUsers(), "ultraakch@.com", "wgva fubp arbg rljf");
+        notificationService = new NotificationService("ultraakch@.com", "wgva fubp arbg rljf");
         installationManager.setNotificationService(notificationService);
-        notificationService.setUsers(userManager.getUsers());
         orderManager = new OrderManager(notificationService);
         productManager = new ProductManager();
     }

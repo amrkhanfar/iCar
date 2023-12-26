@@ -3,15 +3,6 @@ package icar;
 import java.util.ArrayList;
 
 public class iCarApp {
-
-
-
-
-
-    private static User currentUser;
-    private static boolean isLoggedIn;
-    private static ArrayList<Product>  cart;
-
     static UserManager userManager;
     static ProductManager productManager;
     static InstallationManager installationManager;
@@ -25,16 +16,14 @@ public class iCarApp {
         reviewManager = new ReviewManager();
         installationManager = new InstallationManager(null);
         userManager = new UserManager(installationManager);
-        notificationService = new NotificationService(userManager.getUsers(), "ultraakch@.com", "wgva fubp arbg rljf");
+        notificationService = new NotificationService("ultraakch@.com", "wgva fubp arbg rljf");
         installationManager.setNotificationService(notificationService);
         orderManager = new OrderManager(notificationService);
         productManager = new ProductManager();
 
 
-        cart = new ArrayList<Product>();
 
-
-        ConsoleUI consoleUI = new ConsoleUI(userManager,productManager,installationManager,reviewManager,notificationService,orderManager,cart);
+        ConsoleUI consoleUI = new ConsoleUI(userManager,productManager,installationManager,reviewManager,orderManager);
         consoleUI.start(); //gg
 
         }

@@ -46,7 +46,7 @@ public class ReviewManager {
     }
 
     public ArrayList<Review> getProductReviews(Product product) {
-        ArrayList<Review> productReviews = new ArrayList<Review>();
+        ArrayList<Review> productReviews = new ArrayList<>();
         for (Review review : reviews) {
             if (review.getReviewedProduct() != null && review.getReviewedProduct().equals(product)) {
                 productReviews.add(review);
@@ -56,7 +56,7 @@ public class ReviewManager {
     }
 
     public ArrayList<Review> getInstallationRequestReviews(InstallationRequest installationRequest) {
-        ArrayList<Review> installationReviews = new ArrayList<Review>();
+        ArrayList<Review> installationReviews = new ArrayList<>();
         for (Review review : reviews) {
             if (review.getReviewedInstallationRequest().equals(installationRequest)) {
                 installationReviews.add(review);

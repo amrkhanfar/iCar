@@ -34,9 +34,6 @@ public class User {
         return rank;
     }
 
-    public void setRank(String rank) {
-        this.rank = rank;
-    }
 
     public String getPassword() {
         return password;

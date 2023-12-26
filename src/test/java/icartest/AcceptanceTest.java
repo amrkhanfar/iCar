@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features="use_cases",
         glue = "icartest"
-
         )
 public class AcceptanceTest {
 
