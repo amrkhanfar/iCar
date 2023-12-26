@@ -7,6 +7,8 @@
   <name>Archetype - iCar</name>
   <url>http://maven.apache.org</url>
   <properties>
+    <maven.compiler.source>18</maven.compiler.source>
+    <maven.compiler.target>18</maven.compiler.target>
     <sonar.organization>amrkhanfar</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
   </properties>
@@ -64,11 +66,10 @@
       <!-- Maven Surefire Plugin for running tests -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.0</version>
         <configuration>
-          <source>7</source>
-          <target>7</target>
+          <!-- Your Surefire plugin configurations, if any -->
         </configuration>
       </plugin>
 
