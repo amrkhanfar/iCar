@@ -10,6 +10,8 @@ import javax.mail.internet.MimeMessage;
 import java.util.ArrayList;
 import java.util.Properties;
 
+
+
 public class NotificationService {
 
     private ArrayList<User> users;

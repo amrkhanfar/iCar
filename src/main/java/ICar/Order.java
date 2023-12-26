@@ -12,7 +12,7 @@ public class Order {
     private User customer;
 
     public Order(int orderID, LocalDateTime orderDate, User customer, ArrayList<Product> products) {
-        orderDate = orderDate;
+        this.orderDate = orderDate;
         this.orderID = orderID;
         this.orderDate = orderDate;
         this.customer = customer;
