@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8533132-ee67-47c4-b6a3-db27801a6f43" name="Changes" comment="still trying to figure out the jacoco thingey" />
+    <list default="true" id="e8533132-ee67-47c4-b6a3-db27801a6f43" name="Changes" comment="still trying to figure out the jacoco thingey">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ICar/iCarApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ICar/iCarApp.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,7 +83,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.AcceptanceTest">
+  <component name="RunManager" selected="Application.iCarApp">
     <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Solution" />
       <module name="iCar" />
@@ -136,8 +139,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AcceptanceTest" />
         <item itemvalue="Application.iCarApp" />
+        <item itemvalue="JUnit.AcceptanceTest" />
         <item itemvalue="Application.Solution" />
         <item itemvalue="Application.Solution (1)" />
       </list>
@@ -165,7 +168,7 @@
       <workItem from="1703372189930" duration="329000" />
       <workItem from="1703420761603" duration="8046000" />
       <workItem from="1703429222551" duration="17904000" />
-      <workItem from="1703581618225" duration="10370000" />
+      <workItem from="1703581618225" duration="11973000" />
     </task>
     <task id="LOCAL-00001" summary="first push">
       <created>1696776159200</created>
@@ -328,7 +331,21 @@
       <option name="project" value="LOCAL" />
       <updated>1703595225973</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="still trying to figure out the jacoco thingey">
+      <created>1703595533041</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1703595533041</updated>
+    </task>
+    <task id="LOCAL-00025" summary="still trying to figure out the jacoco thingey">
+      <created>1703595753967</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1703595753967</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

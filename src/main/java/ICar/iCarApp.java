@@ -22,14 +22,15 @@ public class iCarApp {
 
     public static void main(String[] args) {
 
-
-
-        productManager =  new ProductManager();
-        installationManager = new InstallationManager(notificationService);
-        userManager = new UserManager(installationManager);
         reviewManager = new ReviewManager();
-        notificationService = new NotificationService(userManager.getUsers(), "ultraakch@gmail.com", "wgva fubp arbg rljf");
+        installationManager = new InstallationManager(null);
+        userManager = new UserManager(installationManager);
+        notificationService = new NotificationService(userManager.getUsers(), "ultraakch@.com", "wgva fubp arbg rljf");
+        installationManager.setNotificationService(notificationService);
         orderManager = new OrderManager(notificationService);
+        productManager = new ProductManager();
+
+
         cart = new ArrayList<Product>();
 
 
