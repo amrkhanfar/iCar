@@ -28,17 +28,6 @@ public class InstallationManager {
         return installationRequest;
     }
 
-    public void viewInstallationRequests() {
-        if (installationRequests.isEmpty()) {
-            System.out.println("No installation requests available.");
-        } else {
-            System.out.println("List of Installation Requests:");
-            for (InstallationRequest request : installationRequests) {
-                System.out.println(request.getRequestDetails());
-                System.out.println("----------------------");
-            }
-        }
-    }
 
     public void assignInstallerToRequest(InstallationRequest installationRequest, Installer installer, LocalDateTime scheduledDateTime) {
         installationRequest.setAssignedInstaller(installer);

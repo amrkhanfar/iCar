@@ -74,6 +74,9 @@ public class OrderManagerSteps {
     public void an_order_confirmation_email_is_sent_to_john_doe() {
         ArrayList<Order> orderHistory = orderManager.getOrderHistory(customer);
         assertFalse(orderHistory.isEmpty());
+
+        Order order = orderManager.getOrderByID(orderManager.getOrderHistory(customer).get(0).getOrderID());
+        assertNotNull(order);
     }
 
 
