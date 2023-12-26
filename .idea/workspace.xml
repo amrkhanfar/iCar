@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8533132-ee67-47c4-b6a3-db27801a6f43" name="Changes" comment="still trying to figure out the jacoco thingey">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e8533132-ee67-47c4-b6a3-db27801a6f43" name="Changes" comment="still trying to figure out the jacoco thingey" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,7 +165,7 @@
       <workItem from="1703372189930" duration="329000" />
       <workItem from="1703420761603" duration="8046000" />
       <workItem from="1703429222551" duration="17904000" />
-      <workItem from="1703581618225" duration="6718000" />
+      <workItem from="1703581618225" duration="7026000" />
     </task>
     <task id="LOCAL-00001" summary="first push">
       <created>1696776159200</created>
@@ -275,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703589460134</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="still trying to figure out the jacoco thingey">
+      <created>1703590365404</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1703590365404</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
