@@ -7,9 +7,8 @@ public class UserManager {
     InstallationManager installationManager;
 
     public UserManager(InstallationManager installationManager){
-        users = new ArrayList<>(); //initializing the array list
+        users = new ArrayList<>();
         this.installationManager = installationManager;
-        users.add( new User("Amr Khanfar", "ultraakch@gmail.com", "123456", Rank.ADMIN));
     }
 
     public User registerUser(String name, String email, String password, String role){

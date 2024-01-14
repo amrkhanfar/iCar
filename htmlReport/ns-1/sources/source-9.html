@@ -1,0 +1,198 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ProductManager</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">icar</a>
+</div>
+
+<h1>Coverage Summary for Class: ProductManager (icar)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ProductManager</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85%
+  </span>
+  <span class="absValue">
+    (34/40)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package icar;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;public class ProductManager {
+&nbsp;
+&nbsp;    private ArrayList&lt;Category&gt; categories;
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;    public ProductManager(){</b>
+<b class="fc">&nbsp;        categories = new ArrayList&lt;Category&gt;(); //initializing categories array list until a database is connected</b>
+&nbsp;
+&nbsp;//        interiorCategory = new Category(&quot;Interior&quot;, &quot;Accessories for the car&#39;s interior.&quot;);
+&nbsp;//        exteriorCategory = new Category(&quot;Exterior&quot;, &quot;Accessories for the car&#39;s exterior.&quot;);
+&nbsp;//        electronicsCategory = new Category(&quot;Electronics&quot;, &quot;Car electronic gadgets and accessories.&quot;);
+&nbsp;
+&nbsp;//        categories.add(interiorCategory);
+&nbsp;//        categories.add(exteriorCategory);
+&nbsp;//        categories.add(electronicsCategory);
+&nbsp;    }
+&nbsp;
+&nbsp;    public Product addProduct (Product product, Category category) {              //needs to be edited when database is linked.
+<b class="fc">&nbsp;        if (category.getProducts().contains(product)){</b>
+<b class="nc">&nbsp;            return null;  //already exists</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        category.addProduct(product);</b>
+<b class="fc">&nbsp;        return product; //added successfully</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean removeProductFromCategory (Product product, Category category){
+<b class="fc">&nbsp;        boolean isRemoved = category.removeProduct(product);</b>
+<b class="fc">&nbsp;        return isRemoved;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Category findCategoryByProduct(Product product) {
+<b class="fc">&nbsp;        for (Category category : categories) {</b>
+<b class="fc">&nbsp;            if (category.getProducts().contains(product)) {</b>
+<b class="fc">&nbsp;                return category;</b>
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+<b class="nc">&nbsp;        return null; // Category not found</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Product findProductById(int productId) {
+<b class="fc">&nbsp;        for (Category category : categories) {</b>
+<b class="fc">&nbsp;            for (Product product : category.getProducts()) {</b>
+<b class="fc">&nbsp;                if (product.getId() == productId) {</b>
+<b class="fc">&nbsp;                    return product;</b>
+&nbsp;                }
+<b class="nc">&nbsp;            }</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return null; // Product not found</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Product findProductByName(String productName) {
+<b class="fc">&nbsp;        for (Category category : categories) {</b>
+<b class="fc">&nbsp;            for (Product product : category.getProducts()) {</b>
+<b class="fc">&nbsp;                if (product.getName().trim().toLowerCase().equals(productName.trim().toLowerCase())) {</b>
+<b class="fc">&nbsp;                    return product;</b>
+&nbsp;                }
+<b class="fc">&nbsp;            }</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        return null; // Product not found</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Category addCategory(Category category){
+<b class="fc">&nbsp;        categories.add(category);</b>
+<b class="fc">&nbsp;        return category;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void displayCategories(){
+<b class="fc">&nbsp;        System.out.println(&quot;--- Categories ---&quot;);</b>
+<b class="fc">&nbsp;        for (Category category : categories) {</b>
+<b class="fc">&nbsp;            System.out.println(&quot;- &quot;+ category.getName());</b>
+<b class="fc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Category getCategoryByName(String categoryName) {
+<b class="fc">&nbsp;        for (Category category : categories) {</b>
+<b class="fc">&nbsp;            if (category.getName().trim().toLowerCase().equals(categoryName.trim().toLowerCase())) {</b>
+<b class="fc">&nbsp;                return category;</b>
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+<b class="nc">&nbsp;        return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean removeCategory(Category categoryToRemove) {
+<b class="fc">&nbsp;        return categories.remove(categoryToRemove);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public ArrayList&lt;Category&gt; getCategories() {
+<b class="fc">&nbsp;        return categories;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-12-26 20:26</div>
+</div>
+</body>
+</html>

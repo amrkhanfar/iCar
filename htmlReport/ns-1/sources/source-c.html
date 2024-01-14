@@ -1,0 +1,155 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Review</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">icar</a>
+</div>
+
+<h1>Coverage Summary for Class: Review (icar)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Review</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (18/18)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package icar;
+&nbsp;
+&nbsp;public class Review {
+&nbsp;
+&nbsp;    private int reviewId;
+&nbsp;    private String content;
+&nbsp;    private int rating;
+&nbsp;    private User reviewer;
+&nbsp;    private Product reviewedProduct;
+&nbsp;    private InstallationRequest reviewedInstallationRequest;
+&nbsp;
+<b class="fc">&nbsp;    public Review(int reviewId, String content, int rating, User reviewer, Product reviewedProduct) {</b>
+<b class="fc">&nbsp;        this.reviewId = reviewId;</b>
+<b class="fc">&nbsp;        this.content = content;</b>
+<b class="fc">&nbsp;        this.rating = rating;</b>
+<b class="fc">&nbsp;        this.reviewer = reviewer;</b>
+<b class="fc">&nbsp;        this.reviewedProduct = reviewedProduct;</b>
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    public Review(int reviewId, String content, int rating, User reviewer, InstallationRequest reviewedInstallationRequest) {</b>
+<b class="fc">&nbsp;        this.reviewId = reviewId;</b>
+<b class="fc">&nbsp;        this.content = content;</b>
+<b class="fc">&nbsp;        this.rating = rating;</b>
+<b class="fc">&nbsp;        this.reviewer = reviewer;</b>
+<b class="fc">&nbsp;        this.reviewedInstallationRequest = reviewedInstallationRequest;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getReviewId() {
+<b class="fc">&nbsp;        return reviewId;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getContent() {
+<b class="fc">&nbsp;        return content;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getRating() {
+<b class="fc">&nbsp;        return rating;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public User getReviewer() {
+<b class="fc">&nbsp;        return reviewer;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Product getReviewedProduct() {
+<b class="fc">&nbsp;        return reviewedProduct;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public InstallationRequest getReviewedInstallationRequest() {
+<b class="fc">&nbsp;        return reviewedInstallationRequest;</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-12-26 20:26</div>
+</div>
+</body>
+</html>

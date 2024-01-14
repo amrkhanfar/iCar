@@ -145,6 +145,7 @@ public class ConsoleUI {
 
                     handleAdminMenuChoice(choice);
                 }
+                break;
             case Rank.INSTALLER:
 
                 while (currentUser != null) {
@@ -154,7 +155,7 @@ public class ConsoleUI {
 
                     handleInstallerMenuChoice(choice);
                 }
-
+                break;
             default:
                 break;
         }
@@ -184,6 +185,14 @@ public class ConsoleUI {
         if (requestToComplete != null) {
             requestToComplete.completeRequest();
             System.out.println("Installation request marked as completed.");
+
+            System.out.println("Please add a review for the installation.");
+            int reviewRating = scanner.nextInt();
+
+            System.out.println("Please add a review for the installation.");
+            String reviewString = scanner.nextLine();
+
+            reviewManager.addInstallationRequestReview(currentUser,requestToComplete,reviewString,reviewRating);
         } else {
             System.out.println("Invalid installation request ID. Please try again.");
         }
@@ -234,6 +243,7 @@ public class ConsoleUI {
                 break;
             case 3:
                 manageUsers();
+                break;
             case 4:
                 scheduleAppointments();
                 break;
@@ -321,16 +331,29 @@ public class ConsoleUI {
             return;
         }
 
-        System.out.print("Enter the scheduled date and time (yyyy-MM-dd HH:mm): ");
-        String scheduledDateTimeString = scanner.next();
-        LocalDateTime scheduledDateTime = LocalDateTime.parse(scheduledDateTimeString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+        LocalDateTime scheduledDateTime = null;
+        boolean validDateTime = false;
+
+        while (!validDateTime) {
+            System.out.print("Enter the scheduled date and time (dd/MM/yyyy HH:mm): ");
+            String scheduledDateTimeString = scanner.nextLine().trim();
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+            try {
+                scheduledDateTime = LocalDateTime.parse(scheduledDateTimeString, formatter);
+                validDateTime = true;
+            } catch (Exception e) {
+                System.out.println("Error parsing date and time. Please enter a valid format.");
+            }
+        }
 
         Installer selectedInstaller = null;
         while (selectedInstaller == null) {
             selectedInstaller = selectInstallerForInstallationRequest();
 
             if (selectedInstaller == null) {
-                System.out.println("Installer was not found. (Enter anything to continue/ # to cancel: ");
+                System.out.print("Installer was not found. (Enter anything to continue / # to cancel): ");
                 String enteredText = scanner.next();
 
                 if (enteredText.equals("#")) {
@@ -339,9 +362,9 @@ public class ConsoleUI {
             }
         }
 
-        installationManager.assignInstallerToRequest(selectedInstallationRequest,selectedInstaller,scheduledDateTime);
-
+        installationManager.assignInstallerToRequest(selectedInstallationRequest, selectedInstaller, scheduledDateTime);
     }
+
 
     private Installer selectInstallerForInstallationRequest() {
         System.out.println("---- Installers List ---");
@@ -768,7 +791,7 @@ public class ConsoleUI {
             System.out.println("Your cart is empty");
             return;
         }
-        for (int i = 0; i <= cart.size(); i++) {
+        for (int i = 0; i < cart.size(); i++) {
             Product product = cart.get(i);
             System.out.println("Index: " + (i+1));
             product.displayProductDetails(reviewManager);
@@ -803,10 +826,25 @@ public class ConsoleUI {
 
         ArrayList<Product> cartCopy = new ArrayList<>(cart);
 
-        orderManager.placeOrder(currentUser, cartCopy);
+        Order order = orderManager.placeOrder(currentUser, cartCopy);
         cart.clear();
 
         System.out.println("Order placed successfully!");
+
+        System.out.print("Do you want to request installation service for your ordered items? (yes/no): ");
+        String userResponse = scanner.next().trim().toLowerCase();
+        scanner.nextLine();
+
+        if (userResponse.equals("yes")) {
+            System.out.print("Add a note for the installation request: ");
+            String userNote = scanner.nextLine();
+            installationManager.makeInstallationRequest(order, userNote);
+            System.out.println("You have chosen to request installation service. Processing...");
+        } else if (userResponse.equals("no")) {
+
+        } else {
+            System.out.println("Invalid input. Please enter 'yes' or 'no'.");
+        }
     }
     private void deleteItemFromCart() {
         System.out.println("Enter the index of the item you want to delete:");

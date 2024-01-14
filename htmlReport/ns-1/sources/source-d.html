@@ -1,0 +1,184 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ReviewManager</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">icar</a>
+</div>
+
+<h1>Coverage Summary for Class: ReviewManager (icar)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ReviewManager</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (38/38)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package icar;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;public class ReviewManager {
+&nbsp;
+&nbsp;    private ArrayList&lt;Review&gt; reviews;
+&nbsp;
+<b class="fc">&nbsp;    public ReviewManager() {</b>
+<b class="fc">&nbsp;        this.reviews = new ArrayList&lt;&gt;();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void addProductReview(User reviewer, Product product, String content, int rating) {
+<b class="fc">&nbsp;        Review review = new Review(generateReviewId(), content, rating, reviewer, product);</b>
+<b class="fc">&nbsp;        reviews.add(review);</b>
+<b class="fc">&nbsp;        System.out.println(&quot;Product review added successfully. (&quot; + product.getName() + &quot;)&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void addInstallationRequestReview(User reviewer, InstallationRequest installationRequest, String content, int rating) {
+<b class="fc">&nbsp;        Review review = new Review(generateReviewId(), content, rating, reviewer, installationRequest);</b>
+<b class="fc">&nbsp;        reviews.add(review);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public double getAverageRatingForProduct(Product product) {
+<b class="fc">&nbsp;        int totalRatings = 0;</b>
+<b class="fc">&nbsp;        int count = 0;</b>
+&nbsp;
+<b class="fc">&nbsp;        for (Review review : reviews) {</b>
+<b class="fc">&nbsp;            if (review.getReviewedProduct() != null &amp;&amp; review.getReviewedProduct().equals(product)) {</b>
+<b class="fc">&nbsp;                totalRatings += review.getRating();</b>
+<b class="fc">&nbsp;                count++;</b>
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+&nbsp;
+<b class="fc">&nbsp;        return count &gt; 0 ? (double) totalRatings / count : 0.0;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public void viewProductReviews(Product product) {
+<b class="fc">&nbsp;        System.out.println(&quot;Product Reviews for &quot; + product.getName() + &quot;:&quot;);</b>
+<b class="fc">&nbsp;        for (Review review : reviews) {</b>
+<b class="fc">&nbsp;            if (review.getReviewedProduct() != null &amp;&amp; review.getReviewedProduct().equals(product)) {</b>
+<b class="fc">&nbsp;                displayReviewDetails(review);</b>
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public ArrayList&lt;Review&gt; getProductReviews(Product product) {
+<b class="fc">&nbsp;        ArrayList&lt;Review&gt; productReviews = new ArrayList&lt;Review&gt;();</b>
+<b class="fc">&nbsp;        for (Review review : reviews) {</b>
+<b class="fc">&nbsp;            if (review.getReviewedProduct() != null &amp;&amp; review.getReviewedProduct().equals(product)) {</b>
+<b class="fc">&nbsp;                productReviews.add(review);</b>
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return productReviews;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public ArrayList&lt;Review&gt; getInstallationRequestReviews(InstallationRequest installationRequest) {
+<b class="fc">&nbsp;        ArrayList&lt;Review&gt; installationReviews = new ArrayList&lt;Review&gt;();</b>
+<b class="fc">&nbsp;        for (Review review : reviews) {</b>
+<b class="fc">&nbsp;            if (review.getReviewedInstallationRequest().equals(installationRequest)) {</b>
+<b class="fc">&nbsp;                installationReviews.add(review);</b>
+&nbsp;            }
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return installationReviews;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    public void displayReviewDetails(Review review) {
+<b class="fc">&nbsp;        System.out.println(&quot;Review ID: &quot; + review.getReviewId());</b>
+<b class="fc">&nbsp;        System.out.println(&quot;Rating: &quot; + review.getRating());</b>
+<b class="fc">&nbsp;        System.out.println(&quot;Content: &quot; + review.getContent());</b>
+<b class="fc">&nbsp;        System.out.println(&quot;Reviewer: &quot; + review.getReviewer().getName());</b>
+<b class="fc">&nbsp;        System.out.println(&quot;----------------------&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private int generateReviewId() {
+<b class="fc">&nbsp;        return reviews.size() + 1;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-12-26 20:26</div>
+</div>
+</body>
+</html>

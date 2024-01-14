@@ -1,0 +1,163 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Installer</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">icar</a>
+</div>
+
+<h1>Coverage Summary for Class: Installer (icar)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Installer</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (5/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    64.3%
+  </span>
+  <span class="absValue">
+    (9/14)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package icar;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;public class Installer {
+&nbsp;
+&nbsp;
+&nbsp;    private String name;
+&nbsp;    private String email;
+&nbsp;    private User userClassProfile;
+&nbsp;    private ArrayList&lt;InstallationRequest&gt; assignedRequests; // Track assigned requests using ArrayList
+&nbsp;
+<b class="fc">&nbsp;    public Installer( String name, String email, User userClassProfile) {</b>
+<b class="fc">&nbsp;        this.name = name;</b>
+<b class="fc">&nbsp;        this.email = email;</b>
+<b class="fc">&nbsp;        this.userClassProfile = userClassProfile;</b>
+<b class="fc">&nbsp;        this.assignedRequests = new ArrayList&lt;&gt;(); // Initialize as ArrayList</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public User getUserClassProfile() {
+<b class="fc">&nbsp;        return userClassProfile;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getName() {
+<b class="fc">&nbsp;        return name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setName(String name) {
+<b class="nc">&nbsp;        this.name = name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getEmail() {
+<b class="fc">&nbsp;        return email;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setEmail(String email) {
+<b class="nc">&nbsp;        this.email = email;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public void setAssignedRequests(ArrayList&lt;InstallationRequest&gt; assignedRequests) {
+<b class="nc">&nbsp;        this.assignedRequests = assignedRequests;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public void addAssignedRequest(InstallationRequest request) {
+<b class="nc">&nbsp;        assignedRequests.add(request);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Remove an assigned request:
+&nbsp;    public void removeAssignedRequest(InstallationRequest request) {
+<b class="nc">&nbsp;        assignedRequests.remove(request);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Get a list of assigned requests (no need to create a new ArrayList):
+&nbsp;    public ArrayList&lt;InstallationRequest&gt; getAssignedRequests() {
+<b class="fc">&nbsp;        return assignedRequests;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-12-26 20:26</div>
+</div>
+</body>
+</html>

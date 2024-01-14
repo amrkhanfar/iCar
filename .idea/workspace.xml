@@ -5,21 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8533132-ee67-47c4-b6a3-db27801a6f43" name="Changes" comment="Fixed some bad smells">
+      <change afterPath="$PROJECT_DIR$/.idea/CoverUsage.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/css/coverage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/css/idea.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/img/arrowDown.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/img/arrowUp.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_BLOCK.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_CLASS.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_LINE.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_LINE_DESC.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_METHOD.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/index_SORT_BY_NAME_DESC.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/js/highlight.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/js/highlightjs-line-numbers.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_BLOCK.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_BLOCK_DESC.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_CLASS.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_CLASS_DESC.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_LINE.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_LINE_DESC.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_METHOD.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_METHOD_DESC.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/index_SORT_BY_NAME_DESC.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-6.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-7.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-8.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-9.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-a.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-b.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-c.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-d.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-e.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htmlReport/ns-1/sources/source-f.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/icar/ConsoleUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/ConsoleUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/icar/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/NotificationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/icar/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/OrderManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/icar/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/icar/ProductManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/ProductManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/icar/Rank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/Rank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/icar/ReviewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/ReviewManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/icar/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/icar/RandomIDGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/RandomIDGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/icar/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/UserManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/icar/iCarApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/icar/iCarApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/icartest/AcceptanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/AcceptanceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/icartest/InstallationManagerSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/InstallationManagerSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/icartest/OrderManagerSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/OrderManagerSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/icartest/ReviewManagerSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/ReviewManagerSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/icartest/UserManagerSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/icartest/UserManagerSteps.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +129,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="JUnit.AcceptanceTest">
+  <component name="RunManager" selected="Application.iCarApp">
     <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Solution" />
       <module name="iCar" />
@@ -218,8 +250,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AcceptanceTest" />
         <item itemvalue="Application.iCarApp" />
+        <item itemvalue="JUnit.AcceptanceTest" />
         <item itemvalue="Diffblue Cover.Write tests for class UserManager" />
         <item itemvalue="Application.Solution" />
         <item itemvalue="Application.Solution (1)" />
@@ -252,7 +284,9 @@
       <workItem from="1703601001902" duration="4248000" />
       <workItem from="1703607814232" duration="1087000" />
       <workItem from="1703608935270" duration="429000" />
-      <workItem from="1703610064852" duration="4385000" />
+      <workItem from="1703610064852" duration="5332000" />
+      <workItem from="1703690903690" duration="132000" />
+      <workItem from="1705142075411" duration="5282000" />
     </task>
     <task id="LOCAL-00001" summary="first push">
       <created>1696776159200</created>
@@ -457,7 +491,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703606372430</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Fixed some bad smells">
+      <created>1703617893776</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1703617893776</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

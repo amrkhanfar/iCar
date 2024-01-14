@@ -10,6 +10,7 @@ public class RandomIDGenerator {
     public static int generateUniqueId() {
         long timestamp = System.currentTimeMillis();
         long sequence = nextId.getAndIncrement(); // Atomically increment the counter
-        return (int) (timestamp * 10000 + sequence); // Combine timestamp and sequence for uniqueness
+        int generatedID = (int) (timestamp * 10000 + sequence); // Combine timestamp and sequence for uniqueness
+        return Math.abs(generatedID);
     }
 }

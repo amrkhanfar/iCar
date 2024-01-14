@@ -21,6 +21,11 @@ public class OrderManager {
         ArrayList<Product> orderedProducts = new ArrayList<>(cart);  //creating a clone
         Order order = new Order(RandomIDGenerator.generateUniqueId(), LocalDateTime.now(), customer, orderedProducts);
         orders.add(order);
+
+        for(Product product : cart) {
+            product.setStock(product.getStock()-1);
+        }
+
         notificationService.sendOrderConfirmationNotification(customer, order);
         cart.clear();
         return order;
